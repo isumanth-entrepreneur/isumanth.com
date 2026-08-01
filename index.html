@@ -158,6 +158,37 @@
   .f-tag{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.15rem;color:#B5AFA4;margin-bottom:44px}
   .f-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.82rem;border-top:1px solid #2E2B25;padding-top:22px}
 
+  /* greeting caret */
+  #greet{border-right:.06em solid var(--orange);padding-right:.06em;animation:caret .8s step-end infinite}
+  @keyframes caret{0%,100%{border-color:var(--orange)}50%{border-color:transparent}}
+
+  /* photo stack */
+  .photo-stack{position:relative;margin-bottom:46px}
+  .polaroid{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:10px 10px 14px;box-shadow:6px 7px 0 var(--orange-soft)}
+  .polaroid img{width:100%;display:block;border-radius:4px}
+  .polaroid.front{transform:rotate(-2deg);position:relative;z-index:2}
+  .polaroid.back{position:absolute;inset:0;transform:rotate(4deg) translate(12px,-10px);z-index:1;opacity:.95}
+  .polaroid figcaption{margin-top:10px;font-family:'Instrument Serif',serif;font-style:italic;color:var(--gray);font-size:.95rem;text-align:center}
+
+  /* music card */
+  .music-card{margin-top:46px;border:2px solid var(--ink);border-radius:16px;background:var(--paper);padding:16px;transform:rotate(-.8deg);box-shadow:6px 7px 0 var(--orange-soft)}
+  .music-label{display:flex;align-items:center;gap:10px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;margin-bottom:12px}
+  .music-label b{color:var(--orange);font-size:1.1rem}
+  .music-card iframe{width:100%;border:0;border-radius:10px;overflow:hidden}
+
+  /* rubik's cube easter egg */
+  .cube-tile{margin-top:34px;display:flex;align-items:center;gap:22px;border:2px dashed var(--ink);border-radius:16px;padding:18px 22px;max-width:420px;cursor:pointer;transition:.2s;background:var(--paper)}
+  .cube-tile:hover{border-style:solid;box-shadow:5px 6px 0 var(--orange-soft)}
+  .cube-scene{width:64px;height:64px;perspective:300px;flex:0 0 auto}
+  .cube{width:100%;height:100%;position:relative;transform-style:preserve-3d;animation:cubespin 14s linear infinite}
+  .cube.scrambling{animation:cubescramble .9s ease}
+  @keyframes cubespin{from{transform:rotateX(-22deg) rotateY(0)}to{transform:rotateX(-22deg) rotateY(360deg)}}
+  @keyframes cubescramble{0%{transform:rotateX(-22deg) rotateY(0)}30%{transform:rotateX(140deg) rotateY(80deg)}60%{transform:rotateX(-60deg) rotateY(230deg)}100%{transform:rotateX(-22deg) rotateY(360deg)}}
+  .cube .face{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:3px;background:var(--ink);border:3px solid var(--ink);border-radius:8px}
+  .cube .face i{border-radius:2px}
+  .cube-text b{display:block;font-weight:800;font-size:1rem}
+  .cube-text span{color:var(--gray);font-size:.88rem;font-family:'Instrument Serif',serif;font-style:italic}
+
   /* book review modal */
   .bmodal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
   .bmodal.open{display:flex}
@@ -189,7 +220,7 @@
     .w-item{grid-template-columns:1fr;gap:8px}
     .w-where{order:-1}
     section{padding:80px 0}
-    .hero-logo{display:none}
+    .hero-logo{height:38vh;right:-50px;bottom:-40px;opacity:.06}
     .sticker{top:-58%;right:0}
     .sec-head{flex-wrap:wrap}
     .sec-note{flex-basis:100%;margin-left:0;margin-top:2px;font-size:.95rem}
@@ -220,7 +251,7 @@
   </div>
   <div class="wrap hero-inner">
     <!-- EDIT-ME: hero -->
-    <p class="hello"><span class="vanakkam">Hey,</span> I'm</p>
+    <p class="hello"><span class="vanakkam"><span id="greet">Hey</span>,</span> I'm</p>
     <h1><span class="l1">Sumanth<span class="sticker">aka <i>Sumi</i></span></span><br>Kumar<br><span class="last">Selvarasu<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 14 Q 40 4 75 12 T 150 11 T 225 13 T 296 9"/></svg></span></h1>
     <p class="rotator">I <span class="rot" id="rot">build markets</span></p>
     <p class="hero-sub">Co-founder of Buyofuel, India's first pan-India B2B biofuel &amp; biomass marketplace. Enabling the ecosystem that turns India's waste into energy.</p>
@@ -249,9 +280,18 @@
           <span class="chip">70+ books collected</span>
           <span class="chip">Countless highway sunrises</span>
         </div>
+        <div class="cube-tile" id="cubeTile" title="click me">
+          <div class="cube-scene"><div class="cube" id="cube"></div></div>
+          <div class="cube-text"><b>The desk companion</b><span id="cubeCaption">click to scramble. solving is my job.</span></div>
+        </div>
         <!-- /EDIT-ME -->
       </div>
-      <div class="facts reveal">
+      <div class="reveal">
+      <div class="photo-stack">
+        <figure class="polaroid back" aria-hidden="true"><img src="sumanth-hills.jpg" alt=""></figure>
+        <figure class="polaroid front"><img src="sumanth-portrait.jpg" alt="Sumanth Kumar Selvarasu"><figcaption>usually found near water, hills, or biomass</figcaption></figure>
+      </div>
+      <div class="facts">
         <!-- EDIT-ME: quick facts -->
         <div class="fact"><b>Now</b><span>Co-founder, Buyofuel</span></div>
         <div class="fact"><b>Focus</b><span>Sales · Partnerships · Brand</span></div>
@@ -260,6 +300,13 @@
         <div class="fact"><b>Base</b><span>Coimbatore, Tamil Nadu</span></div>
         <div class="fact"><b>Languages</b><span>English · Tamil</span></div>
         <!-- /EDIT-ME -->
+      </div>
+      <div class="music-card">
+        <!-- EDIT-ME: playlist embed -->
+        <div class="music-label"><b>♪</b> On loop · Apple Music Replay</div>
+        <iframe allow="autoplay *; encrypted-media *;" height="450" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/in/playlist/replay-all-time/pl.rp-yzCBPay4Yv" loading="lazy"></iframe>
+        <!-- /EDIT-ME -->
+      </div>
       </div>
     </div>
   </div>
@@ -450,6 +497,53 @@
     rot.style.opacity = 0;
     setTimeout(() => { rot.textContent = words[wi]; rot.style.opacity = 1; }, 250);
   }, 2600);
+
+  // greeting typewriter — EDIT-ME: change the greetings
+  const greetings = ["Hey","Hello","Hi","வணக்கம்","Namaste"];
+  const greetEl = document.getElementById('greet');
+  let gi = 0, gpos = greetings[0].length, deleting = false;
+  const typeLoop = () => {
+    const word = greetings[gi];
+    if (deleting) {
+      gpos--;
+      if (gpos <= 0) { deleting = false; gi = (gi + 1) % greetings.length; }
+    } else {
+      gpos++;
+      if (gpos >= word.length) { deleting = true; greetEl.textContent = word; setTimeout(typeLoop, 2200); return; }
+    }
+    greetEl.textContent = (deleting ? word : greetings[gi]).slice(0, Math.max(gpos,0));
+    setTimeout(typeLoop, deleting ? 70 : 120);
+  };
+  setTimeout(typeLoop, 2200);
+
+  // rubik's cube easter egg
+  const cube = document.getElementById('cube');
+  const cubeColors = ['#FF5C00','#FDF9F3','#C9A227','#B54213','#2E4038','#141310'];
+  const faces = ['rotateY(0deg)','rotateY(90deg)','rotateY(180deg)','rotateY(-90deg)','rotateX(90deg)','rotateX(-90deg)'];
+  const buildCube = (scramble) => {
+    cube.innerHTML = '';
+    faces.forEach((t, f) => {
+      const face = document.createElement('div');
+      face.className = 'face';
+      face.style.transform = t + ' translateZ(32px)';
+      for (let s = 0; s < 9; s++) {
+        const st = document.createElement('i');
+        st.style.background = scramble ? cubeColors[Math.floor(Math.random()*6)] : cubeColors[f];
+        face.appendChild(st);
+      }
+      cube.appendChild(face);
+    });
+  };
+  buildCube(false);
+  let solved = true;
+  const captions = ["scrambled. story of every Tuesday.","one more click to restore order.","see? every mess has an algorithm.","click to scramble. solving is my job."];
+  let ci = 0;
+  document.getElementById('cubeTile').addEventListener('click', () => {
+    cube.classList.remove('scrambling'); void cube.offsetWidth; cube.classList.add('scrambling');
+    solved = !solved;
+    setTimeout(() => buildCube(!solved), 400);
+    document.getElementById('cubeCaption').textContent = captions[ci % captions.length]; ci++;
+  });
 
   // reveal on scroll
   const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('on')), {threshold:.15});

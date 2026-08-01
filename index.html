@@ -58,7 +58,6 @@
   header{min-height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
   .hero-inner{position:relative;padding-top:110px;padding-bottom:80px;z-index:2}
   .hello{font-size:clamp(1.2rem,2.4vw,1.7rem);margin-bottom:14px;display:flex;align-items:baseline;gap:14px}
-  .ibrand{color:var(--orange);font-weight:900;font-style:normal;font-size:1.2em;line-height:1}
   .vanakkam{font-weight:900;font-size:clamp(2.2rem,5.5vw,4rem);color:var(--orange);letter-spacing:-.02em;line-height:1}
   h1{font-weight:900;font-size:clamp(3.4rem,11vw,9rem);line-height:.92;letter-spacing:-.04em;text-transform:uppercase;position:relative}
   h1 .last{color:var(--orange);position:relative;display:inline-block}
@@ -142,6 +141,7 @@
   /* contact */
   #contact{background:var(--paper)}
   .c-big{font-weight:900;font-size:clamp(1.9rem,5.6vw,4.4rem);letter-spacing:-.03em;line-height:1.05;text-transform:uppercase;margin-bottom:40px}
+  .matcha{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;text-transform:none;color:#7C9A54;letter-spacing:0}
   .c-big .serif{text-transform:none;color:var(--rust);font-size:.55em;display:block;margin-bottom:10px}
   .c-big a{color:var(--orange);text-decoration:none;border-bottom:6px solid var(--orange-soft);transition:.2s}
   .c-big a:hover{background:var(--orange);color:#fff;border-bottom-color:var(--orange)}
@@ -165,10 +165,13 @@
 
   /* photo stack */
   .photo-stack{position:relative;margin-bottom:46px;cursor:pointer;padding-right:26px}
-  .polaroid{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:10px 10px 14px;box-shadow:6px 7px 0 var(--orange-soft);transition:transform .5s cubic-bezier(.2,.9,.3,1.2), z-index 0s .25s}
+  .polaroid{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:10px 10px 14px;box-shadow:6px 7px 0 var(--orange-soft);transition:transform .75s ease-in-out, opacity .75s ease, z-index 0s .38s}
   .polaroid img{width:100%;display:block;border-radius:4px}
   .polaroid.front{transform:rotate(-2.5deg);position:relative;z-index:2}
-  .polaroid.back{position:absolute;inset:0 0 0 0;transform:rotate(5deg) translate(30px,-16px);z-index:1}
+  .polaroid.back{position:absolute;inset:0 0 0 0;transform:rotate(5deg) translate(30px,-16px);z-index:1;display:flex;flex-direction:column;opacity:.92}
+  .polaroid.back img{flex:1;min-height:0;object-fit:cover}
+  .photo-stack.swapped .back{opacity:1}
+  .photo-stack.swapped .front{opacity:.92}
   .photo-stack.swapped .front{transform:rotate(5deg) translate(30px,-16px);z-index:1}
   .photo-stack.swapped .back{transform:rotate(-2.5deg) translate(0,0);z-index:2}
   .polaroid figcaption{margin-top:10px;font-family:'Instrument Serif',serif;font-style:italic;color:var(--gray);font-size:.95rem;text-align:center}
@@ -239,7 +242,7 @@
     <!-- EDIT-ME: hero -->
     <p class="hello"><span class="vanakkam"><span id="greet">Hey</span>,</span> I'm</p>
     <h1><span class="l1">Sumanth<span class="sticker">aka <i>Sumi</i></span></span><br>Kumar<br><span class="last">Selvarasu<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 14 Q 40 4 75 12 T 150 11 T 225 13 T 296 9"/></svg></span></h1>
-    <p class="rotator"><span class="ibrand">i</span> <span class="rot" id="rot">build markets</span></p>
+    <p class="rotator">I <span class="rot" id="rot">build markets</span></p>
     <p class="hero-sub">Co-founder of Buyofuel, India's first pan-India B2B biofuel &amp; biomass marketplace. Enabling the ecosystem that turns India's waste into energy.</p>
     <!-- /EDIT-ME -->
   </div>
@@ -276,12 +279,12 @@
       <p class="stack-hint">tap the photos to shuffle ↻</p>
       <div class="facts">
         <!-- EDIT-ME: quick facts -->
-        <div class="fact"><b>Now</b><span>Co-founder, Buyofuel</span></div>
-        <div class="fact"><b>Focus</b><span>Sales · Partnerships · Brand</span></div>
-        <div class="fact"><b>Before</b><span>Co-founder, Hackowls → acquired by QpiAI</span></div>
-        <div class="fact"><b>Learning</b><span>Stanford Seed alumnus</span></div>
-        <div class="fact"><b>Base</b><span>Coimbatore, Tamil Nadu</span></div>
-        <div class="fact"><b>Languages</b><span>English · Tamil</span></div>
+        <div class="fact"><b>Now</b> <span>Co-founder, Buyofuel</span></div>
+        <div class="fact"><b>Focus</b> <span>Sales · Partnerships · Brand</span></div>
+        <div class="fact"><b>Before</b> <span>Co-founder, Hackowls → acquired by QpiAI</span></div>
+        <div class="fact"><b>Learning</b> <span>Stanford Seed alumnus</span></div>
+        <div class="fact"><b>Base</b> <span>Coimbatore, Tamil Nadu</span></div>
+        <div class="fact"><b>Languages</b> <span>English · Tamil</span></div>
         <!-- /EDIT-ME -->
       </div>
       </div>
@@ -400,7 +403,7 @@
     <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">Contact</h2></div>
     <!-- EDIT-ME: contact form + socials. Form delivers to your inbox via formsubmit.co -->
     <p class="c-big reveal"><span class="serif">a deal, a story, or a book I should read?</span>
-    Let's talk over coffee. Or maybe tea.</p>
+    Let's talk over a coffee or tea, <span class="matcha">or maybe matcha.</span></p>
     <form class="c-form reveal" action="https://formsubmit.co/sumanth@buyofuel.com" method="POST">
       <input type="hidden" name="_subject" value="New message from isumanth.com">
       <input type="hidden" name="_captcha" value="false">

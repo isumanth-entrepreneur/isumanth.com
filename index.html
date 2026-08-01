@@ -2,115 +2,196 @@
 <html lang="en">
 <head>
 <!-- ============================================================
-     iSumanth.com — single-file site. To update: edit the text
-     between the EDIT-ME comments below, save, push to GitHub.
-     Nothing else needs touching.
+     iSumanth.com v3 — orange/black brand, warm canvas, more vibe.
+     Single file. Everything editable sits between EDIT-ME comments.
+     Books: edit the .book blocks in the Library section.
      ============================================================ -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sumanth Kumar Selvarasu — Co-founder, Buyofuel</title>
-<meta name="description" content="Sumanth Kumar Selvarasu — Co-founder of Buyofuel, India's first pan-India B2B biofuel & biomass marketplace. Builder, marketer, writer. Coimbatore, India.">
+<title>Sumanth Kumar Selvarasu · Co-founder, Buyofuel</title>
+<meta name="description" content="Sumanth Kumar Selvarasu, Co-founder of Buyofuel, India's first pan-India B2B biofuel & biomass marketplace. Builder, marketer, storyteller. Coimbatore, India.">
 <meta property="og:title" content="Sumanth Kumar Selvarasu">
 <meta property="og:description" content="Co-founder, Buyofuel. Building India's biofuel economy.">
 <meta property="og:url" content="https://isumanth.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Archivo+Black&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23CDF563'/><text x='50' y='72' font-size='62' font-family='Arial Black, sans-serif' font-weight='900' text-anchor='middle' fill='%23101408'>S</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 320'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Ccircle cx='100' cy='44' r='26' fill='%23FF5C00'/%3E%3Cline x1='100' y1='112' x2='100' y2='286' stroke='%23FF5C00' stroke-width='42'/%3E%3Cpath d='M 150 128 C 150 106 122 100 100 100 C 70 100 52 112 52 138 C 52 164 76 172 100 176 C 124 180 148 188 148 214 C 148 240 130 252 100 252 C 78 252 50 246 50 224' stroke='%23111111' stroke-width='34'/%3E%3C/g%3E%3C/svg%3E">
 <style>
   :root{
-    --lime:#CDF563;        /* the statement color */
-    --lime-deep:#9FD622;
-    --ink:#101408;         /* near-black with a green soul */
-    --paper:#F4F2EA;       /* warm off-white */
-    --muted:#5A604B;
-    --maxw:1120px;
+    --orange:#FF5C00;
+    --orange-soft:#FFD9C2;
+    --ink:#141310;
+    --paper:#FDF9F3;
+    --warm:#F6EFE4;
+    --rule:#E8DFD1;
+    --gray:#6F6759;
+    --rust:#B54213;
+    --maxw:1180px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Archivo',system-ui,sans-serif;background:var(--ink);color:var(--paper);-webkit-font-smoothing:antialiased}
-  ::selection{background:var(--lime);color:var(--ink)}
-  h1,h2,.display{font-family:'Archivo Black','Archivo',sans-serif;font-weight:400;letter-spacing:-.02em}
+  body{font-family:'Inter Tight',system-ui,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--orange);color:#fff}
   a{color:inherit}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
 
-  /* ---------- nav ---------- */
-  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(16,20,8,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(205,245,99,.14)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .logo{font-family:'Archivo Black',sans-serif;font-size:1.05rem;color:var(--lime);text-decoration:none;letter-spacing:.02em}
-  nav ul{display:flex;gap:26px;list-style:none}
-  nav ul a{font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;text-decoration:none;color:var(--paper);opacity:.75;transition:.2s}
-  nav ul a:hover{opacity:1;color:var(--lime)}
+  /* grain */
+  body::after{content:"";position:fixed;inset:0;z-index:98;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  /* ---------- top bar ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:99;background:rgba(253,249,243,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand svg{height:34px;width:auto;display:block;transition:transform .3s}
+  .brand:hover svg{transform:rotate(-8deg)}
+  .brand span{font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
+  .brand span i{font-style:normal;color:var(--orange)}
+  nav ul{display:flex;gap:28px;list-style:none}
+  nav ul a{font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--gray);transition:.2s}
+  nav ul a b{color:var(--orange);font-weight:600;margin-right:5px}
+  nav ul a:hover{color:var(--ink)}
 
   /* ---------- hero ---------- */
-  header{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:
-    radial-gradient(1100px 520px at 85% -10%, rgba(205,245,99,.20), transparent 60%),
-    radial-gradient(700px 400px at -10% 110%, rgba(205,245,99,.10), transparent 55%),
-    var(--ink)}
-  .hero-kicker{display:inline-flex;align-items:center;gap:10px;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--lime);margin-bottom:18px}
-  .hero-kicker::before{content:"";width:34px;height:2px;background:var(--lime);display:inline-block}
-  .hero-name{font-size:clamp(3.2rem,11.5vw,9.5rem);line-height:.95;color:var(--paper);text-transform:uppercase}
-  .hero-name em{font-style:normal;color:var(--lime)}
-  .hero-sub{margin:26px 0 12px;max-width:640px;font-size:clamp(1.05rem,1.6vw,1.3rem);line-height:1.55;color:#C9CDBA}
-  .hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin:18px 0 0;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-  .hero-inner{padding-top:120px;padding-bottom:56px}
-  .scroll-hint{position:absolute;right:28px;bottom:28px;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl;animation:drift 2.6s ease-in-out infinite}
-  @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+  header{min-height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+  .hero-inner{position:relative;padding-top:110px;padding-bottom:80px;z-index:2}
+  .hello{font-size:clamp(1.2rem,2.4vw,1.7rem);margin-bottom:14px;display:flex;align-items:baseline;gap:14px}
+  .vanakkam{font-weight:900;font-size:clamp(2.2rem,5.5vw,4rem);color:var(--orange);letter-spacing:-.02em;line-height:1}
+  h1{font-weight:900;font-size:clamp(3.4rem,11vw,9rem);line-height:.92;letter-spacing:-.04em;text-transform:uppercase;position:relative}
+  h1 .last{color:var(--orange);position:relative;display:inline-block}
+  h1 .last svg{position:absolute;left:0;bottom:-.12em;width:100%;height:.18em;overflow:visible}
+  h1 .last svg path{fill:none;stroke:var(--ink);stroke-width:7;stroke-linecap:round}
+  .l1{position:relative;display:inline-block}
+  .sticker{position:absolute;top:-24%;right:-4%;background:var(--ink);color:var(--paper);font-weight:800;font-size:clamp(.72rem,1.5vw,1rem);letter-spacing:0;padding:.9em 1.5em;border-radius:999px;transform:rotate(7deg);box-shadow:.35em .4em 0 var(--orange);z-index:3;text-transform:none;white-space:nowrap}
+  .sticker i{font-style:normal;color:var(--orange)}
+  .rotator{margin:30px 0 0;font-size:clamp(1.3rem,2.8vw,2.1rem);font-weight:500;color:#453F35}
+  .rotator .rot{display:inline-block;min-width:1ch;color:var(--orange);font-family:'Instrument Serif',serif;font-style:italic;border-bottom:3px solid var(--orange-soft)}
+  .hero-sub{margin:22px 0 0;max-width:600px;font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.6;color:#5A5347;font-weight:500}
+  .hero-logo{position:absolute;right:-40px;bottom:-80px;height:66vh;opacity:.07;pointer-events:none;transform:rotate(6deg)}
+  .hero-logo svg{height:100%;width:auto}
 
-  /* ---------- marquee ---------- */
-  .marquee{background:var(--lime);color:var(--ink);overflow:hidden;white-space:nowrap;border-top:3px solid var(--ink)}
-  .marquee-track{display:inline-block;padding:13px 0;font-family:'Archivo Black',sans-serif;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;animation:scroll 26s linear infinite}
-  .marquee span{margin:0 22px}
+  /* marquee — the v1 energy, in brand orange */
+  .marquee{background:var(--orange);color:var(--ink);overflow:hidden;white-space:nowrap;transform:rotate(-1.4deg) scale(1.02);border:3px solid var(--ink);position:relative;z-index:4}
+  .marquee-track{display:inline-block;padding:14px 0;font-weight:900;font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase;animation:scroll 28s linear infinite}
+  .marquee span{margin:0 24px}
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   /* ---------- sections ---------- */
-  section{padding:110px 0}
-  .sec-label{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--lime);margin-bottom:14px}
-  .sec-title{font-size:clamp(2rem,4.5vw,3.4rem);line-height:1.05;margin-bottom:34px}
+  section{padding:110px 0;position:relative}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:52px}
+  .sec-num{font-weight:900;font-size:1.05rem;color:#fff;background:var(--orange);border-radius:999px;padding:6px 14px;transform:rotate(-4deg);box-shadow:2px 3px 0 var(--ink)}
+  .sec-title{font-weight:900;font-size:clamp(2rem,4.4vw,3.4rem);letter-spacing:-.03em;text-transform:uppercase}
+  .sec-note{margin-left:auto;font-size:1rem;color:var(--gray);display:none;font-family:'Instrument Serif',serif;font-style:italic}
+  @media(min-width:760px){.sec-note{display:block}}
 
-  /* about — light block */
-  #about{background:var(--paper);color:var(--ink)}
-  #about .sec-label{color:#5c7a12}
-  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:start}
-  .about-lead{font-size:clamp(1.15rem,2vw,1.5rem);line-height:1.6;font-weight:500}
-  .about-lead strong{background:linear-gradient(transparent 62%,var(--lime) 62%);font-weight:600}
-  .facts{display:flex;flex-direction:column;gap:0;border-top:2px solid var(--ink)}
-  .fact{display:flex;justify-content:space-between;gap:16px;padding:16px 2px;border-bottom:1px solid rgba(16,20,8,.18);font-size:.95rem}
-  .fact b{font-weight:600;white-space:nowrap}
-  .fact span{color:#4a5038;text-align:right}
+  /* about */
+  #about{background:var(--warm)}
+  .about-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:60px;align-items:start;position:relative}
+  .about-lead{font-size:clamp(1.2rem,2.1vw,1.55rem);line-height:1.55;font-weight:500}
+  .about-lead strong{font-weight:800;box-shadow:inset 0 -0.45em 0 var(--orange-soft)}
+  .about-more{margin-top:24px;font-size:1.02rem;line-height:1.7;color:#57503F}
+  .beyond{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+  .chip{font-weight:700;font-size:.88rem;border:2px solid var(--ink);border-radius:999px;padding:9px 18px;background:var(--paper);transition:.2s;cursor:default}
+  .chip:nth-child(odd){transform:rotate(-2deg)}
+  .chip:nth-child(even){transform:rotate(2deg)}
+  .chip:hover{background:var(--orange);color:#fff;border-color:var(--orange);transform:rotate(0) translateY(-3px)}
+  .facts{border-top:3px solid var(--ink);background:var(--paper);border-radius:0 0 14px 14px;padding:6px 18px 12px;box-shadow:5px 6px 0 var(--orange-soft);transform:rotate(.6deg)}
+  .fact{display:flex;justify-content:space-between;gap:18px;padding:13px 2px;border-bottom:1px dashed var(--rule);font-size:.95rem}
+  .fact:last-child{border-bottom:none}
+  .fact b{font-weight:700;white-space:nowrap}
+  .fact span{color:var(--gray);text-align:right}
 
   /* writing */
-  .cards{display:grid;gap:18px}
-  .card{display:block;text-decoration:none;border:1px solid rgba(205,245,99,.25);border-radius:14px;padding:28px;transition:.25s;background:rgba(205,245,99,.03)}
-  .card:hover{border-color:var(--lime);background:rgba(205,245,99,.08);transform:translateY(-3px)}
-  .card .where{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);margin-bottom:10px}
-  .card h3{font-size:clamp(1.2rem,2.4vw,1.7rem);line-height:1.25;margin-bottom:10px;font-weight:600}
-  .card p{color:#AEB49C;line-height:1.6;font-size:.98rem}
-  .card .go{margin-top:14px;font-size:.85rem;color:var(--lime)}
-  .writing-note{margin-top:26px;color:var(--muted);font-size:.9rem}
+  .w-list{border-top:3px solid var(--ink)}
+  .w-item{display:grid;grid-template-columns:74px 1fr auto;gap:24px;align-items:baseline;padding:30px 12px;border-bottom:1px solid var(--rule);text-decoration:none;transition:.25s;border-radius:12px}
+  .w-item:hover{background:var(--warm);transform:rotate(-.5deg) scale(1.01)}
+  .w-item:hover .w-title{color:var(--orange)}
+  .w-num{font-weight:900;color:var(--orange);font-size:1rem}
+  .w-title{font-weight:800;font-size:clamp(1.2rem,2.6vw,1.85rem);letter-spacing:-.02em;line-height:1.2;transition:.2s}
+  .w-sub{margin-top:8px;color:var(--gray);font-size:.95rem;line-height:1.55;font-weight:400;display:block}
+  .w-where{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);white-space:nowrap}
+  .w-foot{margin-top:26px;color:var(--gray);font-size:.95rem;font-family:'Instrument Serif',serif;font-style:italic}
+
+  /* ---------- library ---------- */
+  #library{background:var(--warm)}
+  .shelf-area{perspective:1200px}
+  .shelf-row{display:flex;align-items:flex-end;justify-content:center;gap:7px;padding:0 26px;overflow-x:auto;scrollbar-width:none}
+  .shelf-row::-webkit-scrollbar{display:none}
+  .shelf-plank{height:16px;background:var(--ink);border-radius:4px;box-shadow:0 8px 0 var(--orange-soft)}
+  .book{position:relative;flex:0 0 auto;transform-style:preserve-3d;transform:rotateY(0);transition:transform .45s cubic-bezier(.2,.9,.3,1.2);cursor:pointer}
+  .book:hover{transform:rotateY(-42deg) translateY(-10px);z-index:10}
+  .lean{transform:rotate(6deg) translateY(3px);transform-origin:bottom right}
+  .lean:hover{transform:rotate(0) rotateY(-42deg) translateY(-10px)}
+  .spine{display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;text-orientation:mixed;font-weight:700;font-size:.78rem;letter-spacing:.04em;padding:12px 0;border-radius:3px 0 0 3px;box-shadow:inset -6px 0 8px rgba(0,0,0,.22), inset 2px 0 3px rgba(255,255,255,.18)}
+  .cover{position:absolute;top:0;left:100%;width:132px;height:100%;transform:rotateY(90deg);transform-origin:left;border-radius:0 4px 4px 0;padding:14px 12px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:inset 4px 0 8px rgba(0,0,0,.25), 6px 6px 14px rgba(0,0,0,.22)}
+  .cover b{font-weight:800;font-size:.88rem;line-height:1.2;letter-spacing:-.01em}
+  .cover small{font-size:.7rem;opacity:.75;font-weight:600}
+  .shelf-caption{margin-top:34px;color:var(--gray);font-size:1rem;max-width:640px;line-height:1.6}
+  .shelf-caption .serif{color:var(--rust)}
+  .racquet{display:inline-block;transform:rotate(14deg);margin-left:4px}
+
+  /* now strip */
+  #now{padding:0}
+  .now-band{background:var(--ink);color:var(--paper);transform:rotate(1deg) scale(1.02);border:3px solid var(--ink)}
+  .now-band .wrap{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding-top:22px;padding-bottom:22px}
+  .now-label{font-weight:900;text-transform:uppercase;letter-spacing:.15em;font-size:.8rem;color:var(--orange)}
+  .now-item{font-size:.95rem;font-weight:600;border:1px solid #3A362E;border-radius:999px;padding:8px 16px}
 
   /* contact */
-  #contact{background:var(--lime);color:var(--ink);border-top:3px solid var(--ink)}
-  #contact .sec-label{color:#3f5a00}
-  .contact-big{font-size:clamp(2.2rem,6vw,4.6rem);line-height:1.02;text-transform:uppercase;margin-bottom:36px}
-  .contact-big a{text-decoration:none;border-bottom:5px solid var(--ink)}
-  .contact-big a:hover{background:var(--ink);color:var(--lime)}
+  #contact{background:var(--paper)}
+  .c-big{font-weight:900;font-size:clamp(1.9rem,5.6vw,4.4rem);letter-spacing:-.03em;line-height:1.05;text-transform:uppercase;margin-bottom:40px}
+  .c-big .serif{text-transform:none;color:var(--rust);font-size:.55em;display:block;margin-bottom:10px}
+  .c-big a{color:var(--orange);text-decoration:none;border-bottom:6px solid var(--orange-soft);transition:.2s}
+  .c-big a:hover{background:var(--orange);color:#fff;border-bottom-color:var(--orange)}
   .socials{display:flex;gap:14px;flex-wrap:wrap}
-  .socials a{text-decoration:none;font-weight:600;font-size:.95rem;border:2px solid var(--ink);border-radius:999px;padding:10px 22px;transition:.2s}
-  .socials a:hover{background:var(--ink);color:var(--lime)}
+  .socials a{text-decoration:none;font-weight:700;font-size:.92rem;border:2px solid var(--ink);border-radius:999px;padding:11px 24px;transition:.2s;background:var(--paper)}
+  .socials a:nth-child(1){transform:rotate(-2deg)}
+  .socials a:nth-child(2){transform:rotate(1.5deg)}
+  .socials a:nth-child(3){transform:rotate(-1deg)}
+  .socials a:hover{background:var(--ink);color:var(--orange);transform:rotate(0) translateY(-3px)}
 
-  footer{padding:26px 0;font-size:.8rem;color:var(--muted)}
-  footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  /* footer */
+  footer{background:var(--ink);padding:80px 0 34px;color:#8A857D;overflow:hidden}
+  .f-mark{font-weight:900;font-size:clamp(4rem,14vw,11rem);letter-spacing:-.05em;line-height:.9;color:var(--orange);margin-bottom:14px}
+  .f-mark i{font-style:normal;color:var(--paper)}
+  .f-tag{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.15rem;color:#B5AFA4;margin-bottom:44px}
+  .f-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.82rem;border-top:1px solid #2E2B25;padding-top:22px}
 
-  /* reveal on scroll */
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  /* book review modal */
+  .bmodal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
+  .bmodal.open{display:flex}
+  .bmodal-bg{position:absolute;inset:0;background:rgba(20,19,16,.55);backdrop-filter:blur(3px)}
+  .bmodal-card{position:relative;background:var(--paper);border:3px solid var(--ink);border-radius:18px;max-width:440px;width:100%;padding:30px 28px 26px;transform:rotate(-1.2deg);box-shadow:8px 9px 0 var(--orange);animation:pop .3s cubic-bezier(.2,.9,.3,1.3)}
+  @keyframes pop{from{transform:rotate(-1.2deg) scale(.85);opacity:0}to{transform:rotate(-1.2deg) scale(1);opacity:1}}
+  .bmodal-kicker{font-size:.75rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+  .bmodal-title{font-weight:900;font-size:1.45rem;letter-spacing:-.02em;line-height:1.15}
+  .bmodal-author{color:var(--gray);font-weight:600;font-size:.9rem;margin-top:4px}
+  .bmodal-review{margin-top:16px;font-family:'Instrument Serif',serif;font-style:italic;font-size:1.18rem;line-height:1.5;color:#453F35}
+  .bmodal-close{position:absolute;top:-16px;right:-14px;width:40px;height:40px;border-radius:50%;border:3px solid var(--ink);background:var(--orange);color:#fff;font-weight:900;font-size:1.1rem;cursor:pointer;box-shadow:2px 3px 0 var(--ink);transition:.15s}
+  .bmodal-close:hover{transform:rotate(90deg)}
+
+  /* contact form */
+  .c-form{max-width:640px;display:flex;flex-direction:column;gap:14px}
+  .c-form .f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .c-form input,.c-form textarea{font-family:inherit;font-size:1rem;font-weight:500;padding:15px 18px;border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);outline:none;transition:.2s;resize:vertical}
+  .c-form input:focus,.c-form textarea:focus{border-color:var(--orange);box-shadow:4px 5px 0 var(--orange-soft)}
+  .c-form button{align-self:flex-start;font-family:inherit;font-weight:900;font-size:1.05rem;text-transform:uppercase;letter-spacing:.04em;padding:15px 34px;border:3px solid var(--ink);border-radius:999px;background:var(--orange);color:#fff;cursor:pointer;transform:rotate(-1.5deg);box-shadow:4px 5px 0 var(--ink);transition:.2s}
+  .c-form button:hover{transform:rotate(0) translateY(-3px)}
+  .c-sent{display:none;margin-top:10px;font-weight:700;color:var(--rust);font-family:'Instrument Serif',serif;font-style:italic;font-size:1.15rem}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
   .reveal.on{opacity:1;transform:none}
 
   @media(max-width:760px){
     nav ul{display:none}
     .about-grid{grid-template-columns:1fr}
+    .w-item{grid-template-columns:1fr;gap:8px}
+    .w-where{order:-1}
     section{padding:80px 0}
-    .scroll-hint{display:none}
+    .hero-logo{display:none}
+    .sticker{top:-58%;right:0}
   }
 </style>
 </head>
@@ -118,47 +199,54 @@
 
 <nav>
   <div class="wrap">
-    <a class="logo" href="#top">iSumanth</a>
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 200 320" aria-hidden="true"><g fill="none" stroke-linecap="round"><circle cx="100" cy="44" r="26" fill="#FF5C00"/><line x1="100" y1="112" x2="100" y2="286" stroke="#FF5C00" stroke-width="42"/><path d="M 150 128 C 150 106 122 100 100 100 C 70 100 52 112 52 138 C 52 164 76 172 100 176 C 124 180 148 188 148 214 C 148 240 130 252 100 252 C 78 252 50 246 50 224" stroke="#141310" stroke-width="34"/></g></svg>
+      <span><i>i</i>Sumanth</span>
+    </a>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#writing">Writing</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about"><b>01</b>About</a></li>
+      <li><a href="#writing"><b>02</b>Writing</a></li>
+      <li><a href="#library"><b>03</b>Library</a></li>
+      <li><a href="#contact"><b>04</b>Contact</a></li>
     </ul>
   </div>
 </nav>
 
 <header id="top">
+  <div class="hero-logo" aria-hidden="true">
+    <svg viewBox="0 0 200 320"><g fill="none" stroke-linecap="round"><circle cx="100" cy="44" r="26" fill="#FF5C00"/><line x1="100" y1="112" x2="100" y2="286" stroke="#FF5C00" stroke-width="42"/><path d="M 150 128 C 150 106 122 100 100 100 C 70 100 52 112 52 138 C 52 164 76 172 100 176 C 124 180 148 188 148 214 C 148 240 130 252 100 252 C 78 252 50 246 50 224" stroke="#141310" stroke-width="34"/></g></svg>
+  </div>
   <div class="wrap hero-inner">
     <!-- EDIT-ME: hero -->
-    <div class="hero-kicker">Coimbatore, India</div>
-    <h1 class="hero-name">Sumanth<br>Kumar<br><em>Selvarasu</em></h1>
-    <p class="hero-sub">Co-founder of Buyofuel — India's first pan-India B2B biofuel &amp; biomass marketplace. I build markets, tell their stories, and move fuel that would otherwise be smoke.</p>
-    <div class="hero-meta">
-      <span>Co-founder · Buyofuel</span>
-      <span>Stanford Seed</span>
-      <span>Ex-Hackowls (acquired)</span>
-    </div>
+    <p class="hello"><span class="vanakkam">Hey,</span> I'm</p>
+    <h1><span class="l1">Sumanth<span class="sticker">aka <i>Sumi</i></span></span><br>Kumar<br><span class="last">Selvarasu<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 14 Q 40 4 75 12 T 150 11 T 225 13 T 296 9"/></svg></span></h1>
+    <p class="rotator">I <span class="rot" id="rot">build markets</span></p>
+    <p class="hero-sub">Co-founder of Buyofuel, India's first pan-India B2B biofuel &amp; biomass marketplace. Enabling the ecosystem that turns India's waste into energy.</p>
     <!-- /EDIT-ME -->
   </div>
-  <div class="scroll-hint">scroll ↓</div>
 </header>
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Biofuel</span><span>◆</span><span>Marketplaces</span><span>◆</span><span>Sales</span><span>◆</span><span>Storytelling</span><span>◆</span><span>Net Zero</span><span>◆</span>
-    <span>Biofuel</span><span>◆</span><span>Marketplaces</span><span>◆</span><span>Sales</span><span>◆</span><span>Storytelling</span><span>◆</span><span>Net Zero</span><span>◆</span>
+    <span>Biofuel</span><span>◆</span><span>Storytelling</span><span>◆</span><span>Books</span><span>◆</span><span>Highways</span><span>◆</span><span>Sunrises</span><span>◆</span><span>Sustainability</span><span>◆</span><span>Gadgets</span><span>◆</span><span>ARR</span><span>◆</span><span>Rubik's Cube</span><span>◆</span><span>Net Zero</span><span>◆</span><span>Coimbatore</span><span>◆</span>
+    <span>Biofuel</span><span>◆</span><span>Storytelling</span><span>◆</span><span>Books</span><span>◆</span><span>Highways</span><span>◆</span><span>Sunrises</span><span>◆</span><span>Sustainability</span><span>◆</span><span>Gadgets</span><span>◆</span><span>ARR</span><span>◆</span><span>Rubik's Cube</span><span>◆</span><span>Net Zero</span><span>◆</span><span>Coimbatore</span><span>◆</span>
   </div>
 </div>
 
 <section id="about">
   <div class="wrap">
-    <div class="sec-label">About</div>
+    <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">About</h2><span class="sec-note">the 10-second story</span></div>
     <div class="about-grid">
       <div class="reveal">
         <!-- EDIT-ME: about text -->
-        <p class="about-lead">I've spent the last decade building things end to end — first <strong>Hackowls Software</strong>, a services company I co-founded in 2017 that was acquired by QpiAI, and since 2020, <strong>Buyofuel</strong>, where I lead pan-India sales, partnerships and communications as co-founder.</p>
-        <br>
-        <p class="about-lead" style="font-size:1.05rem;font-weight:400;color:#3c4230">Buyofuel connects agricultural and industrial waste to the furnaces and boilers of India's largest manufacturers — turning crop residue into energy, farm income and cleaner air. Self-taught from the w3schools era: code first, then marketing, then markets.</p>
+        <p class="about-lead">I taught myself to code at fifteen. Building websites led to selling them, and that revealed the real craft: <strong>making people care about what's built</strong>. That craft became <strong>Hackowls Software</strong>, co-founded in 2017 and later acquired by QpiAI. Then in 2020 came <strong>Buyofuel</strong>, where farm waste that would have burned in open fields now fires the boilers of India's biggest manufacturers.</p>
+        <p class="about-more">Code first, then marketing, then markets. These days I lead sales, partnerships and the story that holds it all together. Storyteller first, marketer second, engineer underneath.</p>
+        <div class="beyond">
+          <span class="chip">2 startups co-founded</span>
+          <span class="chip">1 acquisition</span>
+          <span class="chip">70+ books collected</span>
+          <span class="chip">Countless highway sunrises</span>
+        </div>
         <!-- /EDIT-ME -->
       </div>
       <div class="facts reveal">
@@ -177,28 +265,129 @@
 
 <section id="writing">
   <div class="wrap">
-    <div class="sec-label">Writing</div>
-    <h2 class="sec-title">Notes from the ground floor<br>of India's biofuel economy.</h2>
-    <div class="cards">
-      <!-- EDIT-ME: to add an article, copy one <a class="card"> block and edit -->
-      <a class="card reveal" href="https://renewedge.biz" target="_blank" rel="noopener">
-        <div class="where">RenewEdge · Guest Column · Jul 2026</div>
-        <h3>Before the Plants, Build the Ecosystem: India's Biofuel Future</h3>
-        <p>Why compressed biogas needs farm-level biomass aggregation before it needs more plants — and what that means for rural jobs.</p>
-        <div class="go">Read the piece →</div>
+    <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">Writing</h2><span class="sec-note">columns, essays and scattered thoughts</span></div>
+    <div class="w-list">
+      <!-- EDIT-ME: to add an article, copy one <a class="w-item"> block and edit -->
+      <a class="w-item reveal" href="https://renewedge.biz" target="_blank" rel="noopener">
+        <span class="w-num">↗</span>
+        <span>
+          <span class="w-title">Before the Plants, Build the Ecosystem: India's Biofuel Future</span>
+          <span class="w-sub">Why compressed biogas needs farm-level biomass aggregation before it needs more plants, and what that means for rural jobs.</span>
+        </span>
+        <span class="w-where">RenewEdge · Jul 2026</span>
+      </a>
+      <a class="w-item reveal" href="https://www.linkedin.com/feed/update/urn:li:activity:7416375271299137536/" target="_blank" rel="noopener">
+        <span class="w-num">↗</span>
+        <span>
+          <span class="w-title">Execution Is the Hardest Currency</span>
+          <span class="w-sub">Real businesses aren't built in dashboards alone. They're built in villages, plants, warehouses and long conversations where incentives don't always align.</span>
+        </span>
+        <span class="w-where">LinkedIn · Jan 2026</span>
+      </a>
+      <a class="w-item reveal" href="https://www.linkedin.com/feed/update/urn:li:activity:7360845022532943872/" target="_blank" rel="noopener">
+        <span class="w-num">↗</span>
+        <span>
+          <span class="w-title">Mango Seeds: From Landfill to Boiler Fuel</span>
+          <span class="w-sub">What was once just landfill waste is now part of the biomass mix firing industrial boilers. A small story about how the waste-to-energy ecosystem actually grows.</span>
+        </span>
+        <span class="w-where">LinkedIn · Aug 2025</span>
+      </a>
+      <a class="w-item reveal" href="https://www.linkedin.com/feed/update/urn:li:activity:7333710675837374464/" target="_blank" rel="noopener">
+        <span class="w-num">↗</span>
+        <span>
+          <span class="w-title">Not Everything Needs Your Attention (Even When It Screams)</span>
+          <span class="w-sub">Inbox full. Three missed calls. Everything screaming. On choosing what actually deserves a response, even when it all feels urgent.</span>
+        </span>
+        <span class="w-where">LinkedIn · May 2025</span>
+      </a>
+      <a class="w-item reveal" href="https://www.linkedin.com/feed/update/urn:li:activity:7318177972455194625/" target="_blank" rel="noopener">
+        <span class="w-num">↗</span>
+        <span>
+          <span class="w-title">Crossing ₹100 Cr, and Turning Profitable</span>
+          <span class="w-sub">The FY24-25 milestone, and why building Buyofuel has been a journey of proving sustainability and scale aren't mutually exclusive.</span>
+        </span>
+        <span class="w-where">LinkedIn · Apr 2025</span>
+      </a>
+      <a class="w-item reveal" href="https://www.linkedin.com/feed/update/urn:li:activity:7329874318480285696/" target="_blank" rel="noopener">
+        <span class="w-num">↗</span>
+        <span>
+          <span class="w-title">One Year with the Apple Watch Ultra</span>
+          <span class="w-sub">A gadget packed with features, reminders, and the constant urge to move faster. A reflection on what all that tracking actually does to you.</span>
+        </span>
+        <span class="w-where">LinkedIn · May 2025</span>
+      </a>
+      <a class="w-item reveal" href="https://www.linkedin.com/feed/update/urn:li:activity:7222864657558953984/" target="_blank" rel="noopener">
+        <span class="w-num">↗</span>
+        <span>
+          <span class="w-title">A Compass, Not a Scorecard</span>
+          <span class="w-sub">When a tool meant to guide you starts judging every step you take, it stops inspiring. On goals, metrics and the difference between direction and judgement.</span>
+        </span>
+        <span class="w-where">LinkedIn · Jul 2024</span>
       </a>
       <!-- /EDIT-ME -->
     </div>
-    <p class="writing-note">More pieces on the way. This section grows as the writing does.</p>
+    <p class="w-foot">more pieces on the way. this list grows as the writing does.</p>
   </div>
 </section>
 
+<section id="library">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">Library</h2><span class="sec-note">pull a book to know my thoughts on it</span></div>
+    <div class="shelf-area reveal">
+      <div class="shelf-row">
+        <!-- EDIT-ME: books — copy a .book block to add one. data-review = your take, shown on click -->
+        <div class="book" style="height:212px" data-author="Ben Horowitz" data-review="The startup book that doesn't sugarcoat. I somehow own two copies, fitting, because the lessons hit twice as hard when you're living them."><div class="spine" style="height:100%;width:34px;background:#141310;color:#FDF9F3">The Hard Thing About Hard Things</div><div class="cover" style="background:#141310;color:#FDF9F3"><b>The Hard Thing About Hard Things</b><small>Ben Horowitz</small></div></div>
+        <div class="book" style="height:196px" data-author="Peter Thiel" data-review="Contrarian thinking, distilled. It keeps asking me: what do we believe that nobody else does yet?"><div class="spine" style="height:100%;width:30px;background:#F3EADB;color:#141310">Zero to One</div><div class="cover" style="background:#F3EADB;color:#141310"><b>Zero to One</b><small>Peter Thiel</small></div></div>
+        <div class="book lean" style="height:218px" data-author="Walter Isaacson" data-review="The biography that taught me storytelling isn't marketing garnish. It is part of the product."><div class="spine" style="height:100%;width:40px;background:#E8E4DC;color:#141310">Steve Jobs</div><div class="cover" style="background:#E8E4DC;color:#141310"><b>Steve Jobs</b><small>Walter Isaacson</small></div></div>
+        <div class="book" style="height:202px" data-author="Yuval Noah Harari" data-review="Zoomed me out further than any business book ever has. Money, companies, nations: all stories we've agreed to believe together."><div class="spine" style="height:100%;width:34px;background:#C9A227;color:#141310">Sapiens</div><div class="cover" style="background:#C9A227;color:#141310"><b>Sapiens</b><small>Yuval Noah Harari</small></div></div>
+        <div class="book" style="height:206px" data-author="Nir Eyal" data-review="Read it, then started leaving the phone in the other room. The distraction was never the phone's fault."><div class="spine" style="height:100%;width:32px;background:#2E4038;color:#F3EADB">Indistractable</div><div class="cover" style="background:#2E4038;color:#F3EADB"><b>Indistractable</b><small>Nir Eyal</small></div></div>
+        <div class="book" style="height:194px" data-author="Nir Eyal" data-review="The other side of the same coin: the habit loops behind every product you can't put down. Useful whether you're building one or resisting one."><div class="spine" style="height:100%;width:30px;background:#FF5C00;color:#fff">Hooked</div><div class="cover" style="background:#FF5C00;color:#fff"><b>Hooked</b><small>Nir Eyal</small></div></div>
+        <div class="book" style="height:198px" data-author="Anil Lamba" data-review="Finance for operators, in plain language. Anil Lamba makes a balance sheet read like a plot twist."><div class="spine" style="height:100%;width:32px;background:#6B4A2B;color:#F3EADB">Romancing the Balance Sheet</div><div class="cover" style="background:#6B4A2B;color:#F3EADB"><b>Romancing the Balance Sheet</b><small>Anil Lamba</small></div></div>
+        <div class="book" style="height:208px" data-author="David Allen" data-review="The system behind the calm. Capture everything. The mind is for having ideas, not holding them."><div class="spine" style="height:100%;width:34px;background:#B54213;color:#fff">Getting Things Done</div><div class="cover" style="background:#B54213;color:#fff"><b>Getting Things Done</b><small>David Allen</small></div></div>
+        <div class="book" style="height:190px" data-author="Knapp & Zeratsky" data-review="One highlight a day. The rare productivity book that asks you to do less, better."><div class="spine" style="height:100%;width:30px;background:#E87A2C;color:#141310">Make Time</div><div class="cover" style="background:#E87A2C;color:#141310"><b>Make Time</b><small>Knapp &amp; Zeratsky</small></div></div>
+        <div class="book" style="height:204px" data-author="Simon Sinek" data-review="Why before what. The book behind every pitch I have ever made."><div class="spine" style="height:100%;width:32px;background:#8C8C88;color:#141310">Start With Why</div><div class="cover" style="background:#8C8C88;color:#141310"><b>Start With Why</b><small>Simon Sinek</small></div></div>
+        <div class="book" style="height:196px" data-author="Michael Watkins" data-review="The playbook for stepping into anything new. Transitions are won or lost early."><div class="spine" style="height:100%;width:30px;background:#24303E;color:#F3EADB">The First 90 Days</div><div class="cover" style="background:#24303E;color:#F3EADB"><b>The First 90 Days</b><small>Michael Watkins</small></div></div>
+        <div class="book lean" style="height:200px" data-author="Rhonda Byrne" data-review="Take what works: where attention goes, energy flows. The universe helps those who show up anyway."><div class="spine" style="height:100%;width:32px;background:#1E1C18;color:#C9A227">The Secret</div><div class="cover" style="background:#1E1C18;color:#C9A227"><b>The Secret</b><small>Rhonda Byrne</small></div></div>
+        <!-- /EDIT-ME -->
+      </div>
+      <div class="shelf-plank"></div>
+    </div>
+    <p class="shelf-caption reveal">Not the whole library. <span class="serif">Just the few I love the most,</span> the ones I catch myself recommending again and again. Click a spine for my take.</p>
+  </div>
+</section>
+
+<div id="now">
+  <div class="now-band">
+    <div class="wrap">
+      <!-- EDIT-ME: now items -->
+      <span class="now-label">Now →</span>
+      <span class="now-item">Raising a round for Buyofuel</span>
+      <span class="now-item">Enriching my knowledge with Stanford Seed</span>
+      <span class="now-item">Working toward a satisfying work-life balance</span>
+      <!-- /EDIT-ME -->
+    </div>
+  </div>
+</div>
+
 <section id="contact">
   <div class="wrap">
-    <div class="sec-label">Contact</div>
-    <!-- EDIT-ME: email + socials -->
-    <h2 class="contact-big reveal">Say hello —<br><a href="mailto:sumanth@buyofuel.com">sumanth@buyofuel.com</a></h2>
-    <div class="socials reveal">
+    <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">Contact</h2></div>
+    <!-- EDIT-ME: contact form + socials. Form delivers to your inbox via formsubmit.co -->
+    <p class="c-big reveal"><span class="serif">a deal, a story, or a book I should read?</span>
+    Let's talk over coffee. Or maybe tea.</p>
+    <form class="c-form reveal" action="https://formsubmit.co/sumanth@buyofuel.com" method="POST">
+      <input type="hidden" name="_subject" value="New message from isumanth.com">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://isumanth.com/?sent=1#contact">
+      <div class="f2">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+      </div>
+      <textarea name="message" rows="4" placeholder="Your message. Biofuel, writing, book recs, anything." required></textarea>
+      <button type="submit">Send it →</button>
+      <p class="c-sent" id="sent">Message sent. It's in my inbox and I'll get back to you.</p>
+    </form>
+    <div class="socials reveal" style="margin-top:34px">
       <a href="https://www.linkedin.com/in/isumanth" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://www.instagram.com/isumanth" target="_blank" rel="noopener">Instagram</a>
       <a href="https://buyofuel.com" target="_blank" rel="noopener">Buyofuel</a>
@@ -209,13 +398,58 @@
 
 <footer>
   <div class="wrap">
-    <span>© <span id="yr"></span> Sumanth Kumar Selvarasu</span>
-    <span>isumanth.com</span>
+    <div class="f-mark"><i>i</i>Sumanth.</div>
+    <p class="f-tag">made in Coimbatore, with morning tea.</p>
+    <div class="f-row">
+      <span>© <span id="yr"></span> Sumanth Kumar Selvarasu</span>
+      <span>isumanth.com</span>
+    </div>
   </div>
 </footer>
 
+<div class="bmodal" id="bmodal" role="dialog" aria-modal="true">
+  <div class="bmodal-bg" onclick="closeBook()"></div>
+  <div class="bmodal-card">
+    <button class="bmodal-close" onclick="closeBook()" aria-label="Close">×</button>
+    <div class="bmodal-kicker">Off the shelf</div>
+    <div class="bmodal-title" id="bm-title"></div>
+    <div class="bmodal-author" id="bm-author"></div>
+    <p class="bmodal-review" id="bm-review"></p>
+  </div>
+</div>
+
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // book review popups
+  const bmodal = document.getElementById('bmodal');
+  document.querySelectorAll('.book').forEach(b => b.addEventListener('click', () => {
+    document.getElementById('bm-title').textContent = b.querySelector('.cover b').textContent;
+    document.getElementById('bm-author').textContent = b.dataset.author || '';
+    document.getElementById('bm-review').textContent = '“' + (b.dataset.review || '') + '”';
+    bmodal.classList.add('open');
+  }));
+  function closeBook(){ bmodal.classList.remove('open'); }
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeBook(); });
+
+  // show "sent" note after form redirect
+  if (location.search.includes('sent=1')) {
+    const s = document.getElementById('sent');
+    if (s) s.style.display = 'block';
+  }
+
+  // rotating hero words — EDIT-ME: change the list
+  const words = ["build markets","move biofuel at scale","cherish nature moments","enjoy music","chase highway sunrises","collect good books","play badminton on weekends"];
+  let wi = 0;
+  const rot = document.getElementById('rot');
+  rot.style.transition = 'opacity .25s';
+  setInterval(() => {
+    wi = (wi + 1) % words.length;
+    rot.style.opacity = 0;
+    setTimeout(() => { rot.textContent = words[wi]; rot.style.opacity = 1; }, 250);
+  }, 2600);
+
+  // reveal on scroll
   const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('on')), {threshold:.15});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>

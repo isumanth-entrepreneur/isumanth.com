@@ -30,7 +30,7 @@
     --maxw:1180px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:hidden}
   body{font-family:'Inter Tight',system-ui,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
   ::selection{background:var(--orange);color:#fff}
   a{color:inherit}
@@ -83,8 +83,7 @@
   .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:52px}
   .sec-num{font-weight:900;font-size:1.05rem;color:#fff;background:var(--orange);border-radius:999px;padding:6px 14px;transform:rotate(-4deg);box-shadow:2px 3px 0 var(--ink)}
   .sec-title{font-weight:900;font-size:clamp(2rem,4.4vw,3.4rem);letter-spacing:-.03em;text-transform:uppercase}
-  .sec-note{margin-left:auto;font-size:1rem;color:var(--gray);display:none;font-family:'Instrument Serif',serif;font-style:italic}
-  @media(min-width:760px){.sec-note{display:block}}
+  .sec-note{margin-left:auto;font-size:1rem;color:var(--gray);display:block;font-family:'Instrument Serif',serif;font-style:italic}
 
   /* about */
   #about{background:var(--warm)}
@@ -175,7 +174,7 @@
   /* contact form */
   .c-form{max-width:640px;display:flex;flex-direction:column;gap:14px}
   .c-form .f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .c-form input,.c-form textarea{font-family:inherit;font-size:1rem;font-weight:500;padding:15px 18px;border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);outline:none;transition:.2s;resize:vertical}
+  .c-form input,.c-form textarea{font-family:inherit;font-size:1rem;font-weight:500;padding:15px 18px;border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);outline:none;transition:.2s;resize:vertical;width:100%;min-width:0;max-width:100%}
   .c-form input:focus,.c-form textarea:focus{border-color:var(--orange);box-shadow:4px 5px 0 var(--orange-soft)}
   .c-form button{align-self:flex-start;font-family:inherit;font-weight:900;font-size:1.05rem;text-transform:uppercase;letter-spacing:.04em;padding:15px 34px;border:3px solid var(--ink);border-radius:999px;background:var(--orange);color:#fff;cursor:pointer;transform:rotate(-1.5deg);box-shadow:4px 5px 0 var(--ink);transition:.2s}
   .c-form button:hover{transform:rotate(0) translateY(-3px)}
@@ -192,6 +191,9 @@
     section{padding:80px 0}
     .hero-logo{display:none}
     .sticker{top:-58%;right:0}
+    .sec-head{flex-wrap:wrap}
+    .sec-note{flex-basis:100%;margin-left:0;margin-top:2px;font-size:.95rem}
+    .c-form .f2{grid-template-columns:1fr}
   }
 </style>
 </head>

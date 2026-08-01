@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ============================================================
+     iSumanth.com — single-file site. To update: edit the text
+     between the EDIT-ME comments below, save, push to GitHub.
+     Nothing else needs touching.
+     ============================================================ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sumanth Kumar Selvarasu — Co-founder, Buyofuel</title>
+<meta name="description" content="Sumanth Kumar Selvarasu — Co-founder of Buyofuel, India's first pan-India B2B biofuel & biomass marketplace. Builder, marketer, writer. Coimbatore, India.">
+<meta property="og:title" content="Sumanth Kumar Selvarasu">
+<meta property="og:description" content="Co-founder, Buyofuel. Building India's biofuel economy.">
+<meta property="og:url" content="https://isumanth.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23CDF563'/><text x='50' y='72' font-size='62' font-family='Arial Black, sans-serif' font-weight='900' text-anchor='middle' fill='%23101408'>S</text></svg>">
+<style>
+  :root{
+    --lime:#CDF563;        /* the statement color */
+    --lime-deep:#9FD622;
+    --ink:#101408;         /* near-black with a green soul */
+    --paper:#F4F2EA;       /* warm off-white */
+    --muted:#5A604B;
+    --maxw:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Archivo',system-ui,sans-serif;background:var(--ink);color:var(--paper);-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--lime);color:var(--ink)}
+  h1,h2,.display{font-family:'Archivo Black','Archivo',sans-serif;font-weight:400;letter-spacing:-.02em}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---------- nav ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(16,20,8,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(205,245,99,.14)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-family:'Archivo Black',sans-serif;font-size:1.05rem;color:var(--lime);text-decoration:none;letter-spacing:.02em}
+  nav ul{display:flex;gap:26px;list-style:none}
+  nav ul a{font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;text-decoration:none;color:var(--paper);opacity:.75;transition:.2s}
+  nav ul a:hover{opacity:1;color:var(--lime)}
+
+  /* ---------- hero ---------- */
+  header{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:
+    radial-gradient(1100px 520px at 85% -10%, rgba(205,245,99,.20), transparent 60%),
+    radial-gradient(700px 400px at -10% 110%, rgba(205,245,99,.10), transparent 55%),
+    var(--ink)}
+  .hero-kicker{display:inline-flex;align-items:center;gap:10px;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--lime);margin-bottom:18px}
+  .hero-kicker::before{content:"";width:34px;height:2px;background:var(--lime);display:inline-block}
+  .hero-name{font-size:clamp(3.2rem,11.5vw,9.5rem);line-height:.95;color:var(--paper);text-transform:uppercase}
+  .hero-name em{font-style:normal;color:var(--lime)}
+  .hero-sub{margin:26px 0 12px;max-width:640px;font-size:clamp(1.05rem,1.6vw,1.3rem);line-height:1.55;color:#C9CDBA}
+  .hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin:18px 0 0;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .hero-inner{padding-top:120px;padding-bottom:56px}
+  .scroll-hint{position:absolute;right:28px;bottom:28px;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl;animation:drift 2.6s ease-in-out infinite}
+  @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+  /* ---------- marquee ---------- */
+  .marquee{background:var(--lime);color:var(--ink);overflow:hidden;white-space:nowrap;border-top:3px solid var(--ink)}
+  .marquee-track{display:inline-block;padding:13px 0;font-family:'Archivo Black',sans-serif;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;animation:scroll 26s linear infinite}
+  .marquee span{margin:0 22px}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- sections ---------- */
+  section{padding:110px 0}
+  .sec-label{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--lime);margin-bottom:14px}
+  .sec-title{font-size:clamp(2rem,4.5vw,3.4rem);line-height:1.05;margin-bottom:34px}
+
+  /* about — light block */
+  #about{background:var(--paper);color:var(--ink)}
+  #about .sec-label{color:#5c7a12}
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:start}
+  .about-lead{font-size:clamp(1.15rem,2vw,1.5rem);line-height:1.6;font-weight:500}
+  .about-lead strong{background:linear-gradient(transparent 62%,var(--lime) 62%);font-weight:600}
+  .facts{display:flex;flex-direction:column;gap:0;border-top:2px solid var(--ink)}
+  .fact{display:flex;justify-content:space-between;gap:16px;padding:16px 2px;border-bottom:1px solid rgba(16,20,8,.18);font-size:.95rem}
+  .fact b{font-weight:600;white-space:nowrap}
+  .fact span{color:#4a5038;text-align:right}
+
+  /* writing */
+  .cards{display:grid;gap:18px}
+  .card{display:block;text-decoration:none;border:1px solid rgba(205,245,99,.25);border-radius:14px;padding:28px;transition:.25s;background:rgba(205,245,99,.03)}
+  .card:hover{border-color:var(--lime);background:rgba(205,245,99,.08);transform:translateY(-3px)}
+  .card .where{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);margin-bottom:10px}
+  .card h3{font-size:clamp(1.2rem,2.4vw,1.7rem);line-height:1.25;margin-bottom:10px;font-weight:600}
+  .card p{color:#AEB49C;line-height:1.6;font-size:.98rem}
+  .card .go{margin-top:14px;font-size:.85rem;color:var(--lime)}
+  .writing-note{margin-top:26px;color:var(--muted);font-size:.9rem}
+
+  /* contact */
+  #contact{background:var(--lime);color:var(--ink);border-top:3px solid var(--ink)}
+  #contact .sec-label{color:#3f5a00}
+  .contact-big{font-size:clamp(2.2rem,6vw,4.6rem);line-height:1.02;text-transform:uppercase;margin-bottom:36px}
+  .contact-big a{text-decoration:none;border-bottom:5px solid var(--ink)}
+  .contact-big a:hover{background:var(--ink);color:var(--lime)}
+  .socials{display:flex;gap:14px;flex-wrap:wrap}
+  .socials a{text-decoration:none;font-weight:600;font-size:.95rem;border:2px solid var(--ink);border-radius:999px;padding:10px 22px;transition:.2s}
+  .socials a:hover{background:var(--ink);color:var(--lime)}
+
+  footer{padding:26px 0;font-size:.8rem;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.on{opacity:1;transform:none}
+
+  @media(max-width:760px){
+    nav ul{display:none}
+    .about-grid{grid-template-columns:1fr}
+    section{padding:80px 0}
+    .scroll-hint{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">iSumanth</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap hero-inner">
+    <!-- EDIT-ME: hero -->
+    <div class="hero-kicker">Coimbatore, India</div>
+    <h1 class="hero-name">Sumanth<br>Kumar<br><em>Selvarasu</em></h1>
+    <p class="hero-sub">Co-founder of Buyofuel — India's first pan-India B2B biofuel &amp; biomass marketplace. I build markets, tell their stories, and move fuel that would otherwise be smoke.</p>
+    <div class="hero-meta">
+      <span>Co-founder · Buyofuel</span>
+      <span>Stanford Seed</span>
+      <span>Ex-Hackowls (acquired)</span>
+    </div>
+    <!-- /EDIT-ME -->
+  </div>
+  <div class="scroll-hint">scroll ↓</div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Biofuel</span><span>◆</span><span>Marketplaces</span><span>◆</span><span>Sales</span><span>◆</span><span>Storytelling</span><span>◆</span><span>Net Zero</span><span>◆</span>
+    <span>Biofuel</span><span>◆</span><span>Marketplaces</span><span>◆</span><span>Sales</span><span>◆</span><span>Storytelling</span><span>◆</span><span>Net Zero</span><span>◆</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-label">About</div>
+    <div class="about-grid">
+      <div class="reveal">
+        <!-- EDIT-ME: about text -->
+        <p class="about-lead">I've spent the last decade building things end to end — first <strong>Hackowls Software</strong>, a services company I co-founded in 2017 that was acquired by QpiAI, and since 2020, <strong>Buyofuel</strong>, where I lead pan-India sales, partnerships and communications as co-founder.</p>
+        <br>
+        <p class="about-lead" style="font-size:1.05rem;font-weight:400;color:#3c4230">Buyofuel connects agricultural and industrial waste to the furnaces and boilers of India's largest manufacturers — turning crop residue into energy, farm income and cleaner air. Self-taught from the w3schools era: code first, then marketing, then markets.</p>
+        <!-- /EDIT-ME -->
+      </div>
+      <div class="facts reveal">
+        <!-- EDIT-ME: quick facts -->
+        <div class="fact"><b>Now</b><span>Co-founder, Buyofuel</span></div>
+        <div class="fact"><b>Focus</b><span>Sales · Partnerships · Brand</span></div>
+        <div class="fact"><b>Before</b><span>Co-founder, Hackowls → acquired by QpiAI</span></div>
+        <div class="fact"><b>Learning</b><span>Stanford Seed alumnus</span></div>
+        <div class="fact"><b>Base</b><span>Coimbatore, Tamil Nadu</span></div>
+        <div class="fact"><b>Languages</b><span>English · Tamil</span></div>
+        <!-- /EDIT-ME -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <div class="sec-label">Writing</div>
+    <h2 class="sec-title">Notes from the ground floor<br>of India's biofuel economy.</h2>
+    <div class="cards">
+      <!-- EDIT-ME: to add an article, copy one <a class="card"> block and edit -->
+      <a class="card reveal" href="https://renewedge.biz" target="_blank" rel="noopener">
+        <div class="where">RenewEdge · Guest Column · Jul 2026</div>
+        <h3>Before the Plants, Build the Ecosystem: India's Biofuel Future</h3>
+        <p>Why compressed biogas needs farm-level biomass aggregation before it needs more plants — and what that means for rural jobs.</p>
+        <div class="go">Read the piece →</div>
+      </a>
+      <!-- /EDIT-ME -->
+    </div>
+    <p class="writing-note">More pieces on the way. This section grows as the writing does.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-label">Contact</div>
+    <!-- EDIT-ME: email + socials -->
+    <h2 class="contact-big reveal">Say hello —<br><a href="mailto:sumanth@buyofuel.com">sumanth@buyofuel.com</a></h2>
+    <div class="socials reveal">
+      <a href="https://www.linkedin.com/in/isumanth" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/isumanth" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://buyofuel.com" target="_blank" rel="noopener">Buyofuel</a>
+    </div>
+    <!-- /EDIT-ME -->
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Sumanth Kumar Selvarasu</span>
+    <span>isumanth.com</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('on')), {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

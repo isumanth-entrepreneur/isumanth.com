@@ -42,21 +42,19 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 
   /* ---------- top bar ---------- */
-  nav{position:fixed;top:0;left:0;right:0;z-index:99;background:rgba(253,249,243,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-  .brand svg{height:34px;width:auto;display:block;transition:transform .3s}
+  nav{position:fixed;top:0;left:0;right:0;z-index:99;background:rgba(253,249,243,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+  nav .wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding-top:14px;padding-bottom:12px}
+  .brand{display:flex;justify-content:center;text-decoration:none}
+  .brand svg{height:44px;width:auto;display:block;transition:transform .3s}
   .brand:hover svg{transform:rotate(-8deg)}
-  .brand span{font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
-  .brand span i{font-style:normal;color:var(--orange)}
-  nav ul{display:flex;gap:28px;list-style:none}
+  nav ul{display:flex;gap:28px;list-style:none;justify-content:center}
   nav ul a{font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--gray);transition:.2s}
   nav ul a b{color:var(--orange);font-weight:600;margin-right:5px}
   nav ul a:hover{color:var(--ink)}
 
   /* ---------- hero ---------- */
   header{min-height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-  .hero-inner{position:relative;padding-top:110px;padding-bottom:80px;z-index:2}
+  .hero-inner{position:relative;padding-top:160px;padding-bottom:80px;z-index:2}
   .hello{font-size:clamp(1.2rem,2.4vw,1.7rem);margin-bottom:14px;display:flex;align-items:baseline;gap:14px}
   .vanakkam{font-weight:900;font-size:clamp(2.2rem,5.5vw,4rem);color:var(--orange);letter-spacing:-.02em;line-height:1}
   h1{font-weight:900;font-size:clamp(3.4rem,11vw,9rem);line-height:.92;letter-spacing:-.04em;text-transform:uppercase;position:relative}
@@ -136,6 +134,7 @@
   /* contact */
   #contact{background:var(--paper)}
   .c-big{font-weight:900;font-size:clamp(1.9rem,5.6vw,4.4rem);letter-spacing:-.03em;line-height:1.05;text-transform:uppercase;margin-bottom:40px}
+  .hl{background:var(--orange);color:#fff;padding:.04em .14em;border-radius:.08em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
   .matcha{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;text-transform:none;color:#7C9A54;letter-spacing:0}
   .c-big .serif{text-transform:none;color:var(--rust);font-size:.55em;display:block;margin-bottom:10px}
   .c-big a{color:var(--orange);text-decoration:none;border-bottom:6px solid var(--orange-soft);transition:.2s}
@@ -200,7 +199,9 @@
   .reveal.on{opacity:1;transform:none}
 
   @media(max-width:760px){
-    nav ul{display:none}
+    nav ul{gap:16px}
+    nav ul a{font-size:.72rem;letter-spacing:.06em}
+    .brand svg{height:38px}
     .about-grid{grid-template-columns:1fr}
     .w-item{grid-template-columns:1fr;gap:8px}
     .w-where{order:-1}
@@ -217,9 +218,8 @@
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#top">
+    <a class="brand" href="#top" aria-label="iSumanth home">
       <svg viewBox="0 0 200 320" aria-hidden="true"><g fill="none" stroke-linecap="round"><circle cx="100" cy="44" r="26" fill="#FF5C00"/><line x1="100" y1="112" x2="100" y2="286" stroke="#FF5C00" stroke-width="42"/><path d="M 150 128 C 150 106 122 100 100 100 C 70 100 52 112 52 138 C 52 164 76 172 100 176 C 124 180 148 188 148 214 C 148 240 130 252 100 252 C 78 252 50 246 50 224" stroke="#141310" stroke-width="34"/></g></svg>
-      <span><i>i</i>Sumanth</span>
     </a>
     <ul>
       <li><a href="#about"><b>01</b>About</a></li>
@@ -390,7 +390,7 @@
     <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">Contact</h2></div>
     <!-- EDIT-ME: contact form + socials. Form delivers to your inbox via formsubmit.co -->
     <p class="c-big reveal"><span class="serif">a deal, a story, or a book I should read?</span>
-    Let's talk over a coffee or tea, <span class="matcha">or maybe matcha.</span></p>
+    <span class="hl">Let's talk</span> over a coffee or tea, <span class="matcha">or maybe matcha.</span></p>
     <form class="c-form reveal" action="https://formsubmit.co/sumanth@buyofuel.com" method="POST">
       <input type="hidden" name="_subject" value="New message from isumanth.com">
       <input type="hidden" name="_captcha" value="false">

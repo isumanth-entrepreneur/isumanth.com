@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ============================================================
+     iSumanth.com — Writings
+     "Self-taught, Rewritten" · August 2026
+     Single file, same brand system as the home page.
+     ============================================================ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BWRF1K7KBG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BWRF1K7KBG');
+</script>
+<title>Self-taught, Rewritten · Sumanth Kumar Selvarasu</title>
+<meta name="description" content="At fifteen, my teacher was a website called w3schools. Today a fifteen-year-old would just ask AI. What self-taught really meant all along.">
+<meta property="og:title" content="Self-taught, Rewritten">
+<meta property="og:description" content="At fifteen, my teacher was w3schools. Today a fifteen-year-old would just ask AI. What self-taught really meant all along.">
+<meta property="og:url" content="https://isumanth.com/writings/self-taught-rewritten/">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 320'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Ccircle cx='100' cy='44' r='26' fill='%23FF5C00'/%3E%3Cline x1='100' y1='112' x2='100' y2='286' stroke='%23FF5C00' stroke-width='42'/%3E%3Cpath d='M 150 128 C 150 106 122 100 100 100 C 70 100 52 112 52 138 C 52 164 76 172 100 176 C 124 180 148 188 148 214 C 148 240 130 252 100 252 C 78 252 50 246 50 224' stroke='%23111111' stroke-width='34'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+  :root{
+    --orange:#FF5C00;
+    --orange-soft:#FFD9C2;
+    --ink:#141310;
+    --paper:#FDF9F3;
+    --warm:#F6EFE4;
+    --rule:#E8DFD1;
+    --gray:#6F6759;
+    --rust:#B54213;
+    --maxw:760px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{font-family:'Inter Tight',system-ui,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--orange);color:#fff}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+
+  /* grain */
+  body::after{content:"";position:fixed;inset:0;z-index:98;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  /* ---------- top bar ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:99;background:rgba(253,249,243,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:10px;max-width:1180px}
+  .brand{display:flex;justify-content:center;text-decoration:none}
+  .brand svg{height:38px;width:auto;display:block;transition:transform .3s}
+  .brand:hover svg{transform:rotate(-8deg)}
+  .backlink{font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--gray);transition:.2s}
+  .backlink b{color:var(--orange);font-weight:600;margin-right:5px}
+  .backlink:hover{color:var(--ink)}
+
+  /* ---------- article ---------- */
+  article{padding:160px 0 90px}
+  .kicker{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+  .kicker .tag{font-weight:900;font-size:.8rem;color:#fff;background:var(--orange);border-radius:999px;padding:5px 13px;transform:rotate(-3deg);box-shadow:2px 3px 0 var(--ink);letter-spacing:.06em;text-transform:uppercase}
+  .kicker .meta{font-size:.82rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+  h1{font-weight:900;font-size:clamp(2.4rem,6.5vw,4.2rem);line-height:.98;letter-spacing:-.03em;text-transform:uppercase;margin-bottom:10px}
+  h1 .last{color:var(--orange);position:relative;display:inline-block}
+  h1 .last svg{position:absolute;left:0;bottom:-.12em;width:100%;height:.18em;overflow:visible}
+  h1 .last svg path{fill:none;stroke:var(--ink);stroke-width:6;stroke-linecap:round}
+  .standfirst{margin-top:20px;font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(1.15rem,2.4vw,1.45rem);line-height:1.5;color:#57503F;max-width:620px}
+  .rule{margin:44px 0;border:none;border-top:3px solid var(--ink);position:relative}
+  .rule::after{content:"";position:absolute;left:0;top:3px;width:72px;border-top:3px solid var(--orange)}
+
+  .prose{font-size:1.08rem;line-height:1.78;color:#2E2A22;font-weight:400}
+  .prose p{margin-bottom:1.45em}
+  .prose p strong{font-weight:800;box-shadow:inset 0 -0.45em 0 var(--orange-soft)}
+  .prose .big{font-size:clamp(1.25rem,2.6vw,1.6rem);line-height:1.4;font-weight:500;color:var(--ink)}
+  .prose .big .serif{color:var(--rust)}
+
+  .pull{margin:2.2em 0;padding:26px 30px;background:var(--warm);border:2px solid var(--ink);border-radius:16px;box-shadow:6px 7px 0 var(--orange-soft);transform:rotate(-.6deg)}
+  .pull p{margin:0;font-weight:800;font-size:clamp(1.15rem,2.4vw,1.5rem);line-height:1.35;letter-spacing:-.01em}
+  .pull p + p{margin-top:.5em}
+  .pull i{font-style:normal;color:var(--orange)}
+
+  .sign{margin-top:56px;display:flex;align-items:center;gap:18px}
+  .sign .mark{font-weight:900;font-size:1.5rem;letter-spacing:-.03em}
+  .sign .mark i{font-style:normal;color:var(--orange)}
+  .sign .who{font-size:.9rem;color:var(--gray);line-height:1.5}
+  .sign .who a{color:var(--rust);font-weight:600;text-decoration:none}
+  .sign .who a:hover{text-decoration:underline}
+
+  .more{margin-top:70px;background:var(--warm);border:2px solid var(--ink);border-radius:16px;padding:24px 28px;box-shadow:5px 6px 0 var(--orange-soft)}
+  .more p{font-size:.98rem;line-height:1.6;color:#57503F}
+  .more a{font-weight:700;color:var(--ink)}
+  .more a:hover{color:var(--orange)}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:var(--paper);padding:54px 0 40px;margin-top:40px}
+  footer .wrap{max-width:1180px}
+  .f-mark{font-weight:900;font-size:1.7rem;letter-spacing:-.03em}
+  .f-mark i{font-style:normal;color:var(--orange)}
+  .f-tag{margin-top:8px;color:#B8AE9D;font-size:.95rem;font-family:'Instrument Serif',serif;font-style:italic}
+  .f-row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:30px;padding-top:20px;border-top:1px solid #3A362E;font-size:.82rem;color:#8D8574}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.on{opacity:1;transform:none}
+
+  @media (max-width:640px){
+    article{padding-top:130px}
+    .pull{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="iSumanth home">
+      <svg viewBox="0 0 200 320" aria-hidden="true"><g fill="none" stroke-linecap="round"><circle cx="100" cy="44" r="26" fill="#FF5C00"/><line x1="100" y1="112" x2="100" y2="286" stroke="#FF5C00" stroke-width="42"/><path d="M 150 128 C 150 106 122 100 100 100 C 70 100 52 112 52 138 C 52 164 76 172 100 176 C 124 180 148 188 148 214 C 148 240 130 252 100 252 C 78 252 50 246 50 224" stroke="#141310" stroke-width="34"/></g></svg>
+    </a>
+    <a class="backlink" href="/#writing"><b>←</b>All writing</a>
+  </div>
+</nav>
+
+<article>
+  <div class="wrap">
+    <div class="kicker">
+      <span class="tag">Writings</span>
+      <span class="meta">August 2026 · 3 min read</span>
+    </div>
+    <h1>Self-taught,<br><span class="last">Rewritten<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 14 Q 40 4 75 12 T 150 11 T 225 13 T 296 9"/></svg></span></h1>
+    <p class="standfirst">At fifteen, my teacher was a website. Today a fifteen-year-old would just ask AI. On what "self-taught" really meant all along.</p>
+
+    <hr class="rule">
+
+    <div class="prose">
+      <p class="big">At fifteen, my teacher was a website called <span class="serif">w3schools</span>.</p>
+
+      <p>No mentor. No course. No one in the room who could tell me if I was doing it right. Just a slow connection, a shared computer, and error messages I did not understand. I started with C, moved to C++, then found PHP and MySQL and realised I could build things people might actually use.</p>
+
+      <p>The learning looked nothing like learning. It looked like failure on a loop. A missing semicolon could eat an evening. A bug could eat a whole weekend. I would copy code from a forum thread, watch it break differently than before, and count that as progress. When something finally worked, it felt like a festival. Not because the program was impressive. Because nobody had helped me get there.</p>
+
+      <p>Today a fifteen-year-old would just ask AI. The code I fought for a week now arrives in thirty seconds, clean and commented, with an explanation on request. The toll booth I spent my teenage years at has been demolished.</p>
+
+      <p><strong>So is self-taught dead?</strong></p>
+
+      <p>I think we misread the word all along.</p>
+
+      <p>The grind was never the point. The forums, the broken builds, the trial and error. That was just the price my era charged for answers. The real thing was what came before the grind. Nobody asked me to learn. Nobody checked my progress. There was no syllabus, no exam, no adult waiting for results. The pull came from inside, and the pull is the whole game.</p>
+
+      <p>AI removed the toll. It did not remove the pull. It cannot install curiosity in a kid who has none. And it cannot slow down the kid who has it. If anything, the curious kid is now dangerous. The distance between wondering and building has collapsed to a single question.</p>
+
+      <p>But here is what I would tell that kid, because there is one part of the old grind worth keeping. The struggle was never valuable because it was hard. It was valuable because it forced me to sit with a problem long enough to actually understand it. Every hour spent inside broken code was an hour spent learning how things fit together, why they fail, what matters and what does not. That is not coding knowledge. That is judgment. And <strong>judgment is still learned the old way</strong>, by doing, by shipping, by being wrong in public and fixing it.</p>
+
+      <p>My own path proves how transferable that is. Code gave way to marketing. Marketing gave way to markets. I co-founded a software company at 22, and today I spend my days selling biofuel to factories, about as far from a code editor as it gets. I stopped writing code years ago, without regret, because the value had already moved. Machines write the solution now. Understanding the problem, knowing what is worth building, knowing what the person across the table actually needs, that is where the game is played. Everything I use today, I learned by building things nobody asked me to build.</p>
+
+      <p>So no, I am not worried about the kids who learn from AI. The tools were never the identity. w3schools did not make me self-taught, and AI will not make this generation lazy.</p>
+
+      <div class="pull">
+        <p>Self-taught never meant learning <i>without teachers</i>.</p>
+        <p>It meant learning <i>without permission</i>.</p>
+      </div>
+
+      <p>That part has not changed. I doubt it ever will.</p>
+    </div>
+
+    <div class="sign">
+      <div class="mark"><i>i</i>S.</div>
+      <div class="who">Sumanth Kumar Selvarasu<br>Co-founder, <a href="https://buyofuel.com" target="_blank" rel="noopener">Buyofuel</a> · Coimbatore, India</div>
+    </div>
+
+    <div class="more reveal">
+      <p>Enjoyed this? There's more on the <a href="/#writing">writing shelf</a>, or say hello on <a href="https://www.linkedin.com/in/sumanth-selvarasu/" target="_blank" rel="noopener">LinkedIn</a> and <a href="https://www.instagram.com/isumanthkumar/" target="_blank" rel="noopener">Instagram</a>.</p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div class="f-mark"><i>i</i>Sumanth.</div>
+    <p class="f-tag">brewed in Coimbatore. making people care about what's built.</p>
+    <div class="f-row">
+      <span>© <span id="yr"></span> Sumanth Kumar Selvarasu</span>
+      <span>isumanth.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('on')), {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

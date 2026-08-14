@@ -291,6 +291,15 @@ button.act:focus-visible{outline:2px solid var(--brand-light);outline-offset:2px
             <span class="unit">days</span>
           </div>
         </div>
+        <div class="field">
+          <label for="winqty">Executed in credit window
+            <small>Dispatched before the first payment lands</small>
+          </label>
+          <div class="inputbox">
+            <input id="winqty" class="narrow" type="number" inputmode="decimal" value="" step="1" min="0" placeholder="0">
+            <span class="unit">MT</span>
+          </div>
+        </div>
       </div>
     </details>
 
@@ -302,7 +311,7 @@ button.act:focus-visible{outline:2px solid var(--brand-light);outline-offset:2px
       <div class="pct" id="o-pct">&nbsp;</div>
       <div class="pct" id="o-total">&nbsp;</div>
 
-      <div class="capital">
+      <div class="capital" id="o-capwrap">
         <span class="k" id="o-caplabel">Working capital required</span>
         <span class="v" id="o-cap">&mdash;</span>
       </div>
@@ -337,17 +346,18 @@ button.act:focus-visible{outline:2px solid var(--brand-light);outline-offset:2px
 
 <script>
 (function(){
-  var ids = ["purchase","sale","qty","days","rate","target","supdays"];
+  var ids = ["purchase","sale","qty","days","rate","target","supdays","winqty"];
   var el = {};
   ids.forEach(function(k){ el[k] = document.getElementById(k); });
   var out = {};
-  ["gross","fin","fdays","net","pct","total","cap","caplabel","stamp","verdict","ideal","advice"].forEach(function(k){
+  ["gross","fin","fdays","net","pct","total","cap","caplabel","capwrap","stamp","verdict","ideal","advice"].forEach(function(k){
     out[k] = document.getElementById("o-" + k);
   });
 
-  var defaults = {purchase:"",sale:"",qty:"100",days:"30",rate:"2.5",target:"1",supdays:"0"};
+  var defaults = {purchase:"",sale:"",qty:"100",days:"30",rate:"2.5",target:"1",supdays:"0",winqty:""};
   var lastState = null;
   var lastLine = "";
+  var copyLabel = "Copy for WhatsApp";
 
   function n(k, fallback){
     var v = parseFloat(el[k].value);
@@ -364,12 +374,13 @@ button.act:focus-visible{outline:2px solid var(--brand-light);outline-offset:2px
     out.fdays.textContent = "";
     out.pct.innerHTML = "&nbsp;";
     out.total.innerHTML = "&nbsp;";
-    out.cap.textContent = "\u2014";
-    out.caplabel.textContent = "Working capital required";
+    out.capwrap.style.display = "none";
     out.ideal.textContent = "\u2014";
     out.advice.textContent = "Set the margin you want under More settings.";
     setStamp("idle", "Waiting", msg);
     lastLine = "";
+    copyLabel = "Copy for WhatsApp";
+    document.getElementById("btn-copy").textContent = copyLabel;
   }
 
   function setStamp(state, word, text){
@@ -408,12 +419,14 @@ button.act:focus-visible{outline:2px solid var(--brand-light);outline-offset:2px
       ? money(net * qty) + " on " + qty.toLocaleString("en-IN") + " MT"
       : "\u00A0";
 
-    if(qty > 0){
-      out.caplabel.textContent = "Working capital for " + qty.toLocaleString("en-IN") + " MT, " + fDays + " days";
-      out.cap.textContent = money(funded * qty);
+    var winQty = n("winqty", 0);
+    if(qty > 0 && winQty > qty){ winQty = qty; }
+    if(winQty > 0 && fDays > 0){
+      out.capwrap.style.display = "";
+      out.caplabel.textContent = "Working capital, " + winQty.toLocaleString("en-IN") + " MT over " + fDays + " days";
+      out.cap.textContent = money(P * winQty);
     } else {
-      out.caplabel.textContent = "Working capital required";
-      out.cap.textContent = money(funded) + " / MT";
+      out.capwrap.style.display = "none";
     }
 
     var idealBuy  = S / (1 + k + target);
@@ -448,15 +461,30 @@ button.act:focus-visible{outline:2px solid var(--brand-light);outline-offset:2px
     }
     setStamp(state, word, text);
 
-    lastLine =
+    var lots = qty > 0 ? qty.toLocaleString("en-IN") + " MT" : "per MT";
+    var head =
       "BUYOFUEL DEAL CHECK\n" +
-      "Buy " + money(P) + "/MT  |  Sell " + money(S) + "/MT  |  " + (qty > 0 ? qty + " MT" : "per MT") + "\n" +
+      "Buy " + money(P) + "/MT  |  Sell " + money(S) + "/MT  |  " + lots + "\n" +
       "Credit " + fDays + " days at " + n("rate",2.5) + "%/mo\n" +
       "Gross " + money(gross) + "  Finance cost " + money(finance) + "\n" +
       "BUYOFUEL MAKES " + money(net) + "/MT (" + pct(netPct) + ")" +
-      (qty > 0 ? "  =  " + money(net * qty) + " total" : "") + "  " + word.toUpperCase() + "\n" +
-      "Working capital " + money(funded * (qty > 0 ? qty : 1)) + "\n" +
-      "Ideal buy for " + tShow + "%: " + money(idealBuy) + "/MT";
+      (qty > 0 ? "  =  " + money(net * qty) + " total" : "") + "\n";
+
+    if(state === "go"){
+      lastLine = head + "The deal is a GO\nPlease proceed with the PO.";
+      copyLabel = "Copy for accounts";
+    } else if(state === "thin"){
+      lastLine = head + "The deal is THIN\nBelow our " + tShow + "% floor. Approval needed to proceed.";
+      copyLabel = "Copy for approval";
+    } else {
+      lastLine =
+        "Buyofuel - purchase enquiry\n" +
+        (qty > 0 ? qty.toLocaleString("en-IN") + " MT" : "This load") + " at " + money(P) + "/MT does not work for us.\n" +
+        "We can confirm at " + money(idealBuy) + "/MT or below.\n" +
+        "Please let us know if this is workable.";
+      copyLabel = "Copy for supplier";
+    }
+    document.getElementById("btn-copy").textContent = copyLabel;
   }
 
   ids.forEach(function(k){ el[k].addEventListener("input", calc); });
@@ -479,7 +507,7 @@ button.act:focus-visible{outline:2px solid var(--brand-light);outline-offset:2px
       catch(e){ btn.textContent = "Copy failed"; }
       document.body.removeChild(t);
     }
-    setTimeout(function(){ btn.textContent = "Copy for WhatsApp"; }, 1800);
+    setTimeout(function(){ btn.textContent = copyLabel; }, 1800);
   });
 
   calc();

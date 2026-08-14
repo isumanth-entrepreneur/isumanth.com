@@ -109,18 +109,28 @@
   .acard:hover{transform:rotate(0) translateY(-3px)}
   .acard img{height:34px;display:block}
 
-  /* writing */
-  .w-list{border-top:3px solid var(--ink)}
-  .w-item{display:grid;grid-template-columns:74px 1fr auto;gap:24px;align-items:baseline;padding:30px 12px;border-bottom:1px solid var(--rule);text-decoration:none;transition:.25s;border-radius:12px}
-  .w-item:hover{background:var(--warm);transform:rotate(-.5deg) scale(1.01)}
-  .w-item:hover .w-title{color:var(--orange)}
-  .w-num{font-weight:900;color:var(--orange);font-size:1rem}
-  .w-title{font-weight:800;font-size:clamp(1.2rem,2.6vw,1.85rem);letter-spacing:-.02em;line-height:1.2;transition:.2s}
-  .w-sub{margin-top:8px;color:var(--gray);font-size:.95rem;line-height:1.55;font-weight:400;display:block}
-  .w-where{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);white-space:nowrap}
-  .w-foot{margin-top:26px;color:var(--gray);font-size:.95rem;font-family:'Instrument Serif',serif;font-style:italic}
+  /* writing — index cards */
+  .w-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(262px,1fr));gap:34px 26px;padding-top:6px}
+  .w-card{position:relative;display:flex;flex-direction:column;background:#fff;border:2px solid var(--ink);border-radius:9px;padding:0 0 16px;box-shadow:5px 6px 0 var(--orange-soft);text-decoration:none;transition:transform .28s cubic-bezier(.2,.9,.3,1.2),box-shadow .28s}
+  .w-card:nth-child(3n+1){transform:rotate(-1.6deg)}
+  .w-card:nth-child(3n+2){transform:rotate(1.2deg)}
+  .w-card:nth-child(3n){transform:rotate(-.6deg)}
+  .w-card:hover,.w-card:focus-visible{transform:rotate(0) translateY(-7px);box-shadow:7px 9px 0 var(--orange);outline:none}
+  .w-card:hover .w-t,.w-card:focus-visible .w-t{color:var(--orange)}
+  .w-tape{position:absolute;top:-10px;left:50%;width:70px;height:20px;margin-left:-35px;background:rgba(255,217,194,.78);border-left:1px dashed rgba(0,0,0,.12);border-right:1px dashed rgba(0,0,0,.12);transform:rotate(-2deg);z-index:3}
+  .w-head{position:relative;height:27px;border-radius:7px 7px 0 0;border-bottom:1px solid #F0BDBD;background:repeating-linear-gradient(#fff,#fff 25px,#DFE9F1 25px,#DFE9F1 26px)}
+  .w-kind{position:absolute;top:6px;left:15px;font-size:.62rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:var(--orange)}
+  .w-date{position:absolute;top:6px;right:15px;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9A9184}
+  .w-body{flex:1;padding:15px 17px 0;background:repeating-linear-gradient(#fff,#fff 25px,#DFE9F1 25px,#DFE9F1 26px)}
+  .w-t{display:block;font-size:1.08rem;font-weight:800;line-height:1.24;letter-spacing:-.015em;margin-bottom:9px;transition:.2s}
+  .w-s{display:block;font-size:.86rem;line-height:1.55;color:var(--gray);font-weight:400}
+  .w-foot2{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:14px 17px 0;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;font-weight:800;color:var(--ink)}
+  .w-foot2 .w-go{color:var(--orange);white-space:nowrap}
+  .w-foot{margin-top:34px;color:var(--gray);font-size:.95rem;font-family:'Instrument Serif',serif;font-style:italic}
+  @media(max-width:520px){.w-grid{gap:30px 0}.w-card,.w-card:nth-child(3n+1),.w-card:nth-child(3n+2),.w-card:nth-child(3n){transform:rotate(0)}}
 
-  /* ---------- library ---------- */
+  
+/* ---------- library ---------- */
   #library{background:var(--warm)}
   .shelf-area{perspective:1200px}
   .shelf-row{display:flex;align-items:flex-end;justify-content:center;gap:7px;padding:0 26px;overflow-x:auto;scrollbar-width:none}
@@ -217,8 +227,6 @@
     nav ul a{font-size:.72rem;letter-spacing:.06em}
     .brand svg{height:38px}
     .about-grid{grid-template-columns:1fr}
-    .w-item{grid-template-columns:1fr;gap:8px}
-    .w-where{order:-1}
     section{padding:80px 0}
     .hero-logo{height:38vh;right:-50px;bottom:-40px;opacity:.06}
     .sticker{top:-58%;right:0}
@@ -300,57 +308,61 @@
 <section id="writing">
   <div class="wrap">
     <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">Writing</h2><span class="sec-note">columns, essays and scattered thoughts</span></div>
-    <div class="w-list">
-      <!-- EDIT-ME: to add an article, copy one <a class="w-item"> block and edit -->
-      <a class="w-item reveal" href="/writings/self-taught-rewritten/">
-        <span class="w-num">→</span>
-        <span>
-          <span class="w-title">Self-taught, Rewritten</span>
-          <span class="w-sub">At fifteen, my teacher was w3schools. Today a fifteen-year-old would just ask AI. What "self-taught" really meant all along, and the one part of the old grind worth keeping.</span>
+    <div class="w-grid reveal">
+      <!-- EDIT-ME: to add a piece, copy one w-card link block and edit. w-kind = ESSAY / COLUMN / NOTE -->
+      <a class="w-card" href="/writings/self-taught-rewritten/">
+        <span class="w-tape"></span>
+        <span class="w-head"><span class="w-kind">Essay</span><span class="w-date">Aug 26</span></span>
+        <span class="w-body">
+          <span class="w-t">Self-taught, Rewritten</span>
+          <span class="w-s">At fifteen, my teacher was w3schools. Today a fifteen-year-old would just ask AI. What "self-taught" really meant all along.</span>
         </span>
-        <span class="w-where">isumanth.com · Aug 2026</span>
+        <span class="w-foot2"><span>isumanth.com</span><span class="w-go">read &rarr;</span></span>
       </a>
-      <a class="w-item reveal" href="https://www.renewedge.biz/articles/2026/07/16/indias-biofuel-future-starts-at-the-farm" target="_blank" rel="noopener">
-        <span class="w-num">↗</span>
-        <span>
-          <span class="w-title">Before the Plants, Build the Ecosystem: India's Biofuel Future</span>
-          <span class="w-sub">Why compressed biogas needs farm-level biomass aggregation before it needs more plants, and what that means for rural jobs.</span>
+      <a class="w-card" href="https://www.renewedge.biz/articles/2026/07/16/indias-biofuel-future-starts-at-the-farm" target="_blank" rel="noopener">
+        <span class="w-tape"></span>
+        <span class="w-head"><span class="w-kind">Column</span><span class="w-date">Jul 26</span></span>
+        <span class="w-body">
+          <span class="w-t">Before the Plants, Build the Ecosystem</span>
+          <span class="w-s">Why compressed biogas needs farm-level biomass aggregation before it needs more plants, and what that means for rural jobs.</span>
         </span>
-        <span class="w-where">RenewEdge · Jul 2026</span>
+        <span class="w-foot2"><span>RenewEdge</span><span class="w-go">read &#8599;</span></span>
       </a>
-      <a class="w-item reveal" href="https://www.linkedin.com/feed/update/urn:li:activity:7416375271299137536/" target="_blank" rel="noopener">
-        <span class="w-num">↗</span>
-        <span>
-          <span class="w-title">Execution Is the Hardest Currency</span>
-          <span class="w-sub">Real businesses aren't built in dashboards alone. They're built in villages, plants, warehouses and long conversations where incentives don't always align.</span>
+      <a class="w-card" href="https://www.linkedin.com/feed/update/urn:li:activity:7416375271299137536/" target="_blank" rel="noopener">
+        <span class="w-tape"></span>
+        <span class="w-head"><span class="w-kind">Note</span><span class="w-date">Jan 26</span></span>
+        <span class="w-body">
+          <span class="w-t">Execution Is the Hardest Currency</span>
+          <span class="w-s">Real businesses aren't built in dashboards alone. They're built in villages, plants, warehouses and long conversations where incentives don't always align.</span>
         </span>
-        <span class="w-where">LinkedIn · Jan 2026</span>
+        <span class="w-foot2"><span>LinkedIn</span><span class="w-go">read &#8599;</span></span>
       </a>
-      
-      <a class="w-item reveal" href="https://www.linkedin.com/feed/update/urn:li:activity:7333710675837374464/" target="_blank" rel="noopener">
-        <span class="w-num">↗</span>
-        <span>
-          <span class="w-title">Not Everything Needs Your Attention (Even When It Screams)</span>
-          <span class="w-sub">Inbox full. Three missed calls. Everything screaming. On choosing what actually deserves a response, even when it all feels urgent.</span>
+      <a class="w-card" href="https://www.linkedin.com/feed/update/urn:li:activity:7333710675837374464/" target="_blank" rel="noopener">
+        <span class="w-tape"></span>
+        <span class="w-head"><span class="w-kind">Note</span><span class="w-date">May 25</span></span>
+        <span class="w-body">
+          <span class="w-t">Not Everything Needs Your Attention</span>
+          <span class="w-s">Inbox full. Three missed calls. Everything screaming. On choosing what actually deserves a response, even when it all feels urgent.</span>
         </span>
-        <span class="w-where">LinkedIn · May 2025</span>
+        <span class="w-foot2"><span>LinkedIn</span><span class="w-go">read &#8599;</span></span>
       </a>
-      
-      <a class="w-item reveal" href="https://www.linkedin.com/feed/update/urn:li:activity:7329874318480285696/" target="_blank" rel="noopener">
-        <span class="w-num">↗</span>
-        <span>
-          <span class="w-title">One Year with the Apple Watch Ultra</span>
-          <span class="w-sub">A gadget packed with features, reminders, and the constant urge to move faster. A reflection on what all that tracking actually does to you.</span>
+      <a class="w-card" href="https://www.linkedin.com/feed/update/urn:li:activity:7329874318480285696/" target="_blank" rel="noopener">
+        <span class="w-tape"></span>
+        <span class="w-head"><span class="w-kind">Note</span><span class="w-date">May 25</span></span>
+        <span class="w-body">
+          <span class="w-t">One Year with the Apple Watch Ultra</span>
+          <span class="w-s">A gadget packed with features, reminders, and the constant urge to move faster. A reflection on what all that tracking actually does to you.</span>
         </span>
-        <span class="w-where">LinkedIn · May 2025</span>
+        <span class="w-foot2"><span>LinkedIn</span><span class="w-go">read &#8599;</span></span>
       </a>
-      <a class="w-item reveal" href="https://www.linkedin.com/feed/update/urn:li:activity:7222864657558953984/" target="_blank" rel="noopener">
-        <span class="w-num">↗</span>
-        <span>
-          <span class="w-title">A Compass, Not a Scorecard</span>
-          <span class="w-sub">When a tool meant to guide you starts judging every step you take, it stops inspiring. On goals, metrics and the difference between direction and judgement.</span>
+      <a class="w-card" href="https://www.linkedin.com/feed/update/urn:li:activity:7222864657558953984/" target="_blank" rel="noopener">
+        <span class="w-tape"></span>
+        <span class="w-head"><span class="w-kind">Note</span><span class="w-date">Jul 24</span></span>
+        <span class="w-body">
+          <span class="w-t">A Compass, Not a Scorecard</span>
+          <span class="w-s">When a tool meant to guide you starts judging every step you take, it stops inspiring. On goals, metrics and the difference between direction and judgement.</span>
         </span>
-        <span class="w-where">LinkedIn · Jul 2024</span>
+        <span class="w-foot2"><span>LinkedIn</span><span class="w-go">read &#8599;</span></span>
       </a>
       <!-- /EDIT-ME -->
     </div>

@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Plan</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#F3F7FD">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="The Plan">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1A75DA; --blue2:#3B9BFF; --ink:#1A1A1A; --body:#5F6B7A;
+  --wash:#F3F7FD; --white:#FFFFFF; --hair:#DCE5F2; --tint:#E9EFF9;
+  --numeral:#B7C6DB; --grey-dot:#AEBDD1; --green:#2C8A5B;
+  --disp:'Plus Jakarta Sans',-apple-system,"Segoe UI",sans-serif;
+  --sans:'Open Sans',-apple-system,"Segoe UI",sans-serif;
+  --sat:env(safe-area-inset-top,0px); --sab:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html{background:var(--wash)}
+body{margin:0;background:var(--white);color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.inner{max-width:860px;margin:0 auto;padding:0 32px}
+.band-top{background:var(--wash);border-bottom:1px solid var(--hair);padding-top:var(--sat)}
+.band-bottom{background:var(--white);padding-bottom:calc(84px + var(--sab))}
+
+/* header */
+.hdr{display:flex;align-items:center;gap:14px;padding:22px 0 8px}
+.hdr .mark{flex:0 0 auto}
+.wordmark{font-family:var(--disp);font-weight:800;font-size:22px;color:var(--ink);letter-spacing:-0.02em;line-height:1.1}
+.tagline{font-size:11.5px;color:var(--body);letter-spacing:0.02em;margin-top:1px}
+.hdr .spacer{flex:1}
+.brief-label{font-family:var(--disp);font-weight:800;font-size:11px;letter-spacing:0.18em;color:var(--blue);white-space:nowrap}
+
+/* tabs */
+.tabs{display:flex;gap:4px;padding:10px 0 0}
+.tab{font-family:var(--disp);font-weight:800;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--body);padding:10px 14px;border-bottom:2px solid transparent}
+.tab.on{color:var(--blue);border-bottom-color:var(--blue)}
+.dock{display:none}
+
+/* day nav */
+.daynav{display:flex;align-items:center;gap:10px;margin:26px 0 8px}
+.daynav .daydate{font-size:13px;color:var(--body);letter-spacing:0.04em;flex:1}
+.navbtn{width:34px;height:34px;border:1px solid var(--hair);background:var(--white);color:var(--ink);font-size:16px;line-height:1;display:inline-flex;align-items:center;justify-content:center}
+.navbtn:disabled{opacity:.3;cursor:default}
+.jump{font-family:var(--disp);font-weight:800;font-size:11px;letter-spacing:0.12em;color:var(--blue);text-transform:uppercase;padding:6px 10px;border:1px solid var(--hair);background:var(--white)}
+
+h1{font-family:var(--disp);font-weight:800;color:var(--ink);font-size:36px;line-height:1.18;letter-spacing:-0.015em;margin:0 0 8px;text-wrap:balance;max-width:26ch}
+.terrain{width:100%;height:auto;display:block;margin:6px 0 2px}
+.acts{display:flex;margin:0 0 30px}
+.act{flex:1;padding:12px 22px 4px 0}
+.act + .act{border-left:1px solid var(--hair);padding-left:22px}
+.act .time{font-family:var(--disp);font-weight:800;font-size:13px;color:var(--ink);letter-spacing:0.05em;margin-bottom:5px;text-transform:uppercase}
+.act p{margin:0;font-size:13.5px;line-height:1.6}
+
+/* progress */
+.progress{display:flex;align-items:center;gap:14px;padding:22px 0 0}
+.progress .txt{font-family:var(--disp);font-weight:800;font-size:13px;color:var(--ink);white-space:nowrap}
+.progress .bar{flex:1;height:4px;background:var(--tint);position:relative}
+.progress .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--blue);transition:width .3s}
+
+/* sections */
+.section{padding-top:30px}
+.section h2{font-family:var(--disp);font-weight:800;font-size:13px;letter-spacing:0.14em;color:var(--blue);text-transform:uppercase;margin:0 0 12px;display:flex;align-items:baseline;gap:10px}
+.section h2 small{font-family:var(--sans);font-weight:400;font-size:12px;letter-spacing:0.02em;text-transform:none;color:var(--body)}
+ol.items{list-style:none;margin:0;padding:0;counter-reset:it}
+ol.items li{counter-increment:it;display:flex;gap:14px;padding:13px 0;border-top:1px solid var(--tint);align-items:flex-start}
+ol.items li:first-child{border-top:none}
+ol.items li .num{font-family:var(--disp);font-weight:800;font-size:13px;color:var(--numeral);flex:0 0 26px;padding-top:3px;font-variant-numeric:tabular-nums}
+ol.items li .num::before{content:counter(it,decimal-leading-zero)}
+ol.items li .txt{flex:1;min-width:0}
+.it-title{font-family:var(--disp);font-weight:800;font-size:15px;color:var(--ink);letter-spacing:-0.005em;line-height:1.4;margin:0 0 3px}
+.it-title a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--blue);text-decoration-thickness:1.5px;text-underline-offset:3px}
+.it-body{margin:0;font-size:14px}
+.it-body a{color:var(--body);text-decoration:underline;text-decoration-color:var(--blue);text-underline-offset:3px}
+.since{font-family:var(--disp);font-weight:800;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);margin-left:8px;white-space:nowrap}
+.since.grey{color:var(--numeral)}
+
+/* checkbox */
+.chk{flex:0 0 24px;width:24px;height:24px;margin-top:2px;border:1.5px solid var(--numeral);border-radius:50%;background:var(--white);display:inline-flex;align-items:center;justify-content:center;transition:all .15s}
+.chk svg{width:13px;height:13px;opacity:0;transform:scale(.6);transition:all .15s}
+li.done .chk{background:var(--blue);border-color:var(--blue)}
+li.done .chk svg{opacity:1;transform:scale(1)}
+li.done .it-title{color:var(--body);text-decoration:line-through;text-decoration-color:var(--numeral);text-decoration-thickness:1px}
+li.done .it-body{opacity:.55}
+li.done .num{opacity:.5}
+.donewhen{font-size:12px;color:var(--green);margin-top:3px}
+
+/* add */
+.addrow{display:flex;gap:10px;padding:12px 0 0 38px}
+.addrow input{flex:1;font:inherit;font-size:14px;color:var(--ink);border:0;border-bottom:1px solid var(--hair);background:transparent;padding:8px 0;outline:none}
+.addrow input:focus{border-bottom-color:var(--blue)}
+.addrow button{font-family:var(--disp);font-weight:800;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue)}
+.remove{font-size:12px;color:var(--numeral);margin-left:8px}
+.remove:hover{color:var(--body)}
+
+/* money */
+.tiles{display:flex;gap:14px;margin:4px 0 14px}
+.tile{flex:1;background:var(--wash);border:1px solid var(--hair);padding:14px 16px}
+.tile .n{font-family:var(--disp);font-weight:800;font-size:24px;color:var(--ink);line-height:1.2;font-variant-numeric:tabular-nums}
+.tile .l{font-size:12px;letter-spacing:0.03em;margin-top:2px}
+.moneynote{margin:0;font-size:13.5px}
+.moneynote a{color:var(--body);text-decoration:underline;text-decoration-color:var(--blue);text-underline-offset:3px}
+
+/* tracker */
+.tblwrap{overflow-x:auto}
+table.trk{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
+table.trk th{font-family:var(--disp);font-weight:800;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--body);text-align:left;padding:8px 10px;border-bottom:1px solid var(--hair);white-space:nowrap}
+table.trk td{padding:8px 10px;border-bottom:1px solid var(--tint);vertical-align:top}
+table.trk td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.trk td.inv{font-family:var(--disp);font-weight:800;color:var(--ink);white-space:nowrap}
+table.trk td.grp{font-family:var(--disp);font-weight:800;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--blue);background:var(--wash);border-bottom:1px solid var(--hair);padding:9px 10px}
+.st{font-family:var(--disp);font-weight:800;font-size:11px;letter-spacing:0.04em;white-space:nowrap}
+.st-done{color:var(--green)} .st-disb{color:var(--blue)} .st-grnc{color:#B07A1F} .st-grn{color:#B0503A}
+.trknote{margin:10px 0 0;font-size:13px}
+.trknote a{color:var(--body);text-decoration:underline;text-decoration-color:var(--blue);text-underline-offset:3px}
+
+/* note */
+.note textarea{width:100%;min-height:84px;font:inherit;font-size:14px;color:var(--ink);border:1px solid var(--hair);background:var(--wash);padding:12px 14px;resize:vertical;outline:none}
+.note textarea:focus{border-color:var(--blue)}
+.note .saved{font-size:12px;color:var(--numeral);margin-top:4px;height:16px}
+
+/* log */
+.logday{border-top:1px solid var(--hair);padding:18px 0}
+.logday:first-child{border-top:none}
+.logday .row{display:flex;align-items:baseline;gap:14px;cursor:pointer}
+.logday .d{font-family:var(--disp);font-weight:800;font-size:13px;color:var(--blue);letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap}
+.logday .h{flex:1;font-family:var(--disp);font-weight:800;font-size:16px;color:var(--ink);line-height:1.35}
+.logday .c{font-family:var(--disp);font-weight:800;font-size:13px;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.logday .mini{height:3px;background:var(--tint);margin:10px 0 0;position:relative}
+.logday .mini i{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+.logday .body{display:none;padding-top:12px}
+.logday.open .body{display:block}
+.logday h4{font-family:var(--disp);font-weight:800;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--body);margin:14px 0 6px}
+.logday ul{list-style:none;margin:0;padding:0}
+.logday ul li{font-size:14px;padding:5px 0;border-top:1px solid var(--tint);display:flex;gap:10px;align-items:baseline}
+.logday ul li .t{color:var(--ink);font-weight:600}
+.logday ul li .w{font-size:12px;color:var(--green);white-space:nowrap;margin-left:auto}
+.logday ul li.open-item .t{color:var(--body);font-weight:400}
+.logday .nt{font-size:14px;color:var(--ink);background:var(--wash);border:1px solid var(--hair);padding:10px 14px;white-space:pre-wrap}
+.logday .openday{font-family:var(--disp);font-weight:800;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-top:12px;display:inline-block}
+.summary{display:flex;gap:14px;margin:26px 0 8px}
+.summary .tile .n{font-size:22px}
+
+.calm{font-size:14px;color:var(--body);padding:14px 0}
+footer{border-top:1px solid var(--hair);margin-top:44px}
+.foot{display:flex;justify-content:space-between;gap:16px;padding:18px 0 30px;font-size:12px;color:var(--body);letter-spacing:0.03em}
+
+@media (max-width:640px){
+  h1{font-size:27px}
+  .inner{padding:0 18px}
+  .hdr{padding-top:16px}
+  .wordmark{font-size:19px}
+  .acts{flex-direction:column}
+  .act{padding:12px 0}
+  .act + .act{border-left:none;border-top:1px solid var(--hair);padding-left:0}
+  .tiles,.summary{flex-direction:column;gap:10px}
+  .foot{flex-direction:column;gap:4px}
+  .tabs{display:none}
+  .dock{display:flex;position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.94);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);border-top:1px solid var(--hair);padding:6px 0 calc(6px + var(--sab));z-index:9}
+  .dock .tab{flex:1;text-align:center;border-bottom:0;padding:10px 0 6px;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10.5px}
+  .dock .tab svg{width:22px;height:22px}
+  ol.items li{gap:11px}
+  ol.items li .num{display:none}
+  .addrow{padding-left:35px}
+  .logday .row{flex-wrap:wrap}
+  .logday .c{order:3}
+}
+</style>
+</head>
+<body>
+
+<div class="band-top">
+  <div class="inner">
+    <div class="hdr">
+      <svg class="mark" width="40" height="46" viewBox="0 0 40 46" aria-hidden="true">
+        <path d="M20 8 C13 17 7 24 7 31.5 C7 39 12.8 44 20 44 C27.2 44 33 39 33 31.5 C33 24 27 17 20 8 Z" fill="#1A75DA"/>
+        <path d="M20 8 C18 4.5 14.5 2.2 10.5 2 C11.5 5.8 14.5 8.6 18.4 9.6 Z" fill="#3EA34C"/>
+        <path d="M20.6 7.4 C21.6 3.9 24.6 1.2 28.5 0.6 C28.1 4.5 25.5 7.7 21.8 8.9 Z" fill="#5CBB4F"/>
+        <text x="20" y="37.5" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-weight="800" font-size="17" fill="#FFFFFF">B</text>
+      </svg>
+      <div>
+        <div class="wordmark">Buyofuel</div>
+        <div class="tagline">Sustainability Through Green Fuels</div>
+      </div>
+      <div class="spacer"></div>
+      <div class="brief-label">THE PLAN</div>
+    </div>
+    <nav class="tabs" id="tabs">
+      <button class="tab on" data-view="day">Today</button>
+      <button class="tab" data-view="log">Log</button>
+    </nav>
+    <div id="top"></div>
+  </div>
+</div>
+
+<div class="band-bottom">
+  <div class="inner" id="main"></div>
+</div>
+
+<nav class="dock" id="dock">
+  <button class="tab on" data-view="day">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg>
+    Today
+  </button>
+  <button class="tab" data-view="log">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 4.5h14M5 9.5h14M5 14.5h9M5 19.5h6"/></svg>
+    Log
+  </button>
+</nav>
+
+<script src="data/index.js"></script>
+<script>
+// Load one script per day listed in the index, then boot.
+(function(){
+  var idx = (window.THEPLAN && window.THEPLAN.index) || [];
+  var left = idx.length;
+  if(!left){ boot(); return; }
+  idx.forEach(function(d){
+    var s = document.createElement('script');
+    s.src = 'data/' + d + '.js';
+    s.onload = s.onerror = function(){ if(--left === 0) boot(); };
+    document.head.appendChild(s);
+  });
+  function boot(){ window.dispatchEvent(new Event('theplan:ready')); }
+})();
+</script>
+<script>
+window.addEventListener('theplan:ready', function(){
+
+/* ---------- state ---------- */
+var KEY = 'theplan.v1';
+var state = load();
+function load(){ try{ var s = JSON.parse(localStorage.getItem(KEY)||'null'); if(s && typeof s==='object') return fill(s); }catch(e){} return fill({}); }
+function fill(s){ s.done = s.done||{}; s.added = s.added||{}; s.notes = s.notes||{}; return s; }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+
+/* ---------- data ---------- */
+var P = window.THEPLAN || {days:{}, index:[]};
+var DAYS = (P.index||[]).filter(function(d){ return P.days[d]; }).sort();
+var CHECK = {needs:1, plan:1, waiting:1};
+var CHECK_TITLES = {needs:'Needs attention', plan:"Today's plan", waiting:'Waiting on others'};
+
+function dayItems(d){ // all checkable items for a day, incl. added ones
+  var day = P.days[d], out = [];
+  (day.sections||[]).forEach(function(sec){
+    if(sec.kind==='check') (sec.items||[]).forEach(function(it){ out.push({id:it.id, title:it.title, href:it.href, body:it.body, sec:sec.id, secTitle:sec.title, day:d}); });
+  });
+  (state.added[d]||[]).forEach(function(it){ out.push({id:it.id, title:it.title, sec:'plan', secTitle:"Today's plan", day:d, added:true}); });
+  return out;
+}
+var firstSeen = {}, lastSeen = {}, latestText = {};
+function reindex(){
+  firstSeen = {}; lastSeen = {}; latestText = {};
+  DAYS.forEach(function(d){ dayItems(d).forEach(function(it){ if(!firstSeen[it.id]) firstSeen[it.id]=d; lastSeen[it.id]=d; latestText[it.id]=it; }); });
+}
+reindex();
+function closedBy(id){ // the first day whose brief closed this item
+  for(var i=0;i<DAYS.length;i++){ var c = P.days[DAYS[i]].closed||[]; if(c.indexOf(id)>=0) return DAYS[i]; }
+  return null;
+}
+function doneInfo(id){
+  if(state.done[id]) return {day: state.done[id].day, at: state.done[id].at, by:'you'};
+  var c = closedBy(id); if(c) return {day:c, by:'brief'};
+  return null;
+}
+function isDone(id){ return !!doneInfo(id); }
+
+/* ---------- helpers ---------- */
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+var MON = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+var DOW = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+function parse(d){ var p=d.split('-'); return new Date(+p[0], +p[1]-1, +p[2]); }
+function longDate(d){ var x=parse(d); return DOW[x.getDay()]+' · '+MON[x.getMonth()]+' '+x.getDate()+' '+x.getFullYear(); }
+function shortDate(d){ var x=parse(d); return MON[x.getMonth()].slice(0,3)+' '+x.getDate(); }
+function todayStr(){ var t=new Date(); return t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0'); }
+function timeStr(iso){ var x=new Date(iso); var h=x.getHours(), m=String(x.getMinutes()).padStart(2,'0'); var ap=h>=12?'PM':'AM'; h=h%12||12; return h+':'+m+' '+ap; }
+function latestDay(){ var t=todayStr(); var c=DAYS.filter(function(d){return d<=t;}); return c.length?c[c.length-1]:DAYS[DAYS.length-1]; }
+
+var TICK = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+/* ---------- views ---------- */
+var view = 'day', cur = latestDay();
+var $top = document.getElementById('top'), $main = document.getElementById('main');
+
+function render(){
+  document.querySelectorAll('.tab').forEach(function(b){ b.classList.toggle('on', b.dataset.view===view); });
+  if(!DAYS.length){ $top.innerHTML=''; $main.innerHTML='<p class="calm">No days yet. The first morning run will put one here.</p>'; return; }
+  if(view==='day') renderDay(); else renderLog();
+  window.scrollTo(0,0);
+}
+
+function renderDay(){
+  var d = cur, day = P.days[d], i = DAYS.indexOf(d), latest = latestDay();
+  var isLatest = d===latest;
+  $top.innerHTML =
+    '<div class="daynav">'+
+      '<button class="navbtn" id="prev" '+(i<=0?'disabled':'')+' aria-label="Previous day">‹</button>'+
+      '<div class="daydate">'+esc(longDate(d))+'</div>'+
+      (isLatest?'':'<button class="jump" id="jump">Today</button>')+
+      '<button class="navbtn" id="next" '+(i>=DAYS.length-1?'disabled':'')+' aria-label="Next day">›</button>'+
+    '</div>'+
+    '<h1>'+esc(day.headline||'')+'</h1>'+
+    (day.terrain?'<svg class="terrain" viewBox="0 0 840 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The shape of the day">'+day.terrain+'</svg>':'')+
+    (day.acts&&day.acts.length?'<div class="acts">'+day.acts.map(function(a){ return '<div class="act"><div class="time">'+esc(a.time)+'</div><p>'+esc(a.text)+'</p></div>'; }).join('')+'</div>':'');
+
+  var items = dayItems(d);
+  var carried = [];
+  if(isLatest){
+    var ids = {}; items.forEach(function(it){ ids[it.id]=1; });
+    DAYS.filter(function(x){return x<d;}).forEach(function(x){
+      dayItems(x).forEach(function(it){ if(!ids[it.id] && lastSeen[it.id]===x && !isDone(it.id)){ ids[it.id]=1; carried.push(it); } });
+    });
+  }
+  var all = items.concat(carried);
+  var doneN = all.filter(function(it){ return isDone(it.id); }).length;
+
+  var h = '';
+  h += '<div class="progress"><div class="txt">'+doneN+' of '+all.length+' done</div><div class="bar"><i style="width:'+(all.length?Math.round(doneN/all.length*100):0)+'%"></i></div></div>';
+
+  if(day.money){
+    h += '<div class="section"><h2>The money view</h2><div class="tiles">'+
+      (day.money.tiles||[]).map(function(t){ return '<div class="tile"><div class="n">'+esc(t.n)+'</div><div class="l">'+esc(t.l)+'</div></div>'; }).join('')+
+      '</div>'+(day.money.note?'<p class="moneynote">'+day.money.note+'</p>':'')+'</div>';
+  }
+
+  (day.sections||[]).forEach(function(sec){
+    if(sec.kind==='check'){
+      var list = (sec.items||[]).map(function(it){ return {id:it.id,title:it.title,href:it.href,body:it.body,day:d}; });
+      if(sec.id==='plan') (state.added[d]||[]).forEach(function(it){ list.push({id:it.id,title:it.title,day:d,added:true}); });
+      var dn = list.filter(function(it){return isDone(it.id);}).length;
+      h += '<div class="section" data-sec="'+esc(sec.id)+'"><h2>'+esc(sec.title)+'<small>'+dn+' / '+list.length+'</small></h2>';
+      h += list.length ? '<ol class="items">'+list.map(function(it){ return itemRow(it, d); }).join('')+'</ol>' : '<p class="calm">Nothing here.</p>';
+      if(sec.id==='plan') h += '<form class="addrow" id="addform"><input id="addinput" type="text" placeholder="Add something to today" autocomplete="off"><button type="submit">Add</button></form>';
+      h += '</div>';
+    } else if(sec.kind==='list'){
+      if(!(sec.items||[]).length) return;
+      h += '<div class="section"><h2>'+esc(sec.title)+'</h2><ol class="items">'+sec.items.map(function(it){
+        return '<li><span class="num"></span><div class="txt"><p class="it-title">'+(it.href?'<a href="'+esc(it.href)+'" target="_blank" rel="noopener">'+esc(it.title)+'</a>':esc(it.title))+'</p>'+(it.body?'<p class="it-body">'+it.body+'</p>':'')+'</div></li>';
+      }).join('')+'</ol></div>';
+    } else if(sec.kind==='html'){
+      h += '<div class="section"><h2>'+esc(sec.title)+'</h2>'+(sec.html||'')+'</div>';
+    } else if(sec.kind==='prose'){
+      h += '<div class="section"><h2>'+esc(sec.title)+'</h2><p class="it-body">'+(sec.html||esc(sec.text||''))+'</p></div>';
+    }
+  });
+
+  if(carried.length){
+    h += '<div class="section" data-sec="carried"><h2>Still open from earlier days<small>not in this brief</small></h2><ol class="items">'+carried.map(function(it){ return itemRow(it, d); }).join('')+'</ol></div>';
+  }
+
+  h += '<div class="section note"><h2>End of day</h2><textarea id="note" placeholder="How did it go? One or two lines for the log.">'+esc(state.notes[d]||'')+'</textarea><div class="saved" id="notesaved"></div></div>';
+  h += '<footer><div class="foot"><div>Buyofuel · Buyo India Pvt Ltd</div><div>The Plan · isumanth.com/tools/theplan</div></div></footer>';
+  $main.innerHTML = h;
+
+  var prev=document.getElementById('prev'), next=document.getElementById('next'), jump=document.getElementById('jump');
+  if(prev) prev.onclick=function(){ cur=DAYS[i-1]; render(); };
+  if(next) next.onclick=function(){ cur=DAYS[i+1]; render(); };
+  if(jump) jump.onclick=function(){ cur=latestDay(); render(); };
+  var form=document.getElementById('addform');
+  if(form) form.onsubmit=function(e){ e.preventDefault(); var inp=document.getElementById('addinput'); var t=inp.value.trim(); if(!t) return;
+    (state.added[d]=state.added[d]||[]).push({id:'u-'+Date.now().toString(36), title:t, at:new Date().toISOString()}); save(); reindex(); renderDay(); var n=document.getElementById('addinput'); if(n) n.focus(); };
+  var note=document.getElementById('note'), tmr;
+  if(note) note.oninput=function(){ state.notes[d]=note.value; save(); clearTimeout(tmr); var s=document.getElementById('notesaved'); s.textContent='Saved'; tmr=setTimeout(function(){ s.textContent=''; },1200); };
+}
+
+function itemRow(it, viewDay){
+  var info = doneInfo(it.id), done = !!info;
+  var since = firstSeen[it.id] && firstSeen[it.id] < viewDay ? '<span class="since">since '+esc(shortDate(firstSeen[it.id]))+'</span>' : '';
+  if(it.day && it.day < viewDay) since = '<span class="since">from '+esc(shortDate(it.day))+' · '+esc(it.secTitle||'')+'</span>';
+  var when = '';
+  if(done){
+    if(info.by==='brief') when = '<div class="donewhen">Closed in the '+esc(shortDate(info.day))+' brief</div>';
+    else when = '<div class="donewhen">Done '+(info.day!==viewDay?esc(shortDate(info.day))+' ':'')+esc(timeStr(info.at))+'</div>';
+  }
+  var title = it.href ? '<a href="'+esc(it.href)+'" target="_blank" rel="noopener">'+esc(it.title)+'</a>' : esc(it.title);
+  var rm = it.added ? '<button class="remove" data-remove="'+esc(it.id)+'" data-day="'+esc(it.day)+'" title="Remove">remove</button>' : '';
+  return '<li class="'+(done?'done':'')+'" data-id="'+esc(it.id)+'">'+
+    '<button class="chk" data-toggle="'+esc(it.id)+'" aria-label="Mark done">'+TICK+'</button>'+
+    '<span class="num"></span>'+
+    '<div class="txt"><p class="it-title">'+title+since+rm+'</p>'+(it.body?'<p class="it-body">'+it.body+'</p>':'')+when+'</div></li>';
+}
+
+function renderLog(){
+  var days = DAYS.slice().reverse();
+  var totalDone=0, totalItems=0, seen={};
+  days.forEach(function(d){ dayItems(d).forEach(function(it){ if(seen[it.id]) return; seen[it.id]=1; totalItems++; if(isDone(it.id)) totalDone++; }); });
+  $top.innerHTML = '<div class="daynav"><div class="daydate">'+days.length+' day'+(days.length===1?'':'s')+' on record</div></div>'+
+    '<h1>What got done, day by day.</h1>'+
+    '<div class="summary">'+
+      '<div class="tile"><div class="n">'+totalDone+'</div><div class="l">Items closed, all days</div></div>'+
+      '<div class="tile"><div class="n">'+(totalItems-totalDone)+'</div><div class="l">Still open across the board</div></div>'+
+    '</div>';
+  var h='';
+  days.forEach(function(d, k){
+    var day=P.days[d], its=dayItems(d);
+    var doneHere = []; // closed on this day: ticked with day===d, or closed by this day's brief, plus the brief's own Resolved list
+    var openHere = [];
+    its.forEach(function(it){ var info=doneInfo(it.id); if(info && info.day<=d){ if(info.day===d) doneHere.push({it:it,info:info}); } else openHere.push(it); });
+    // items first listed earlier but ticked on this day (carried and finished here)
+    DAYS.filter(function(x){return x<d;}).forEach(function(x){ dayItems(x).forEach(function(it){ if(lastSeen[it.id]===x){ var info=doneInfo(it.id); if(info&&info.day===d&&!doneHere.some(function(z){return z.it.id===it.id;})) doneHere.push({it:it,info:info,carried:true}); } }); });
+    var resolved = ((day.sections||[]).filter(function(s){return s.id==='resolved';})[0]||{}).items||[];
+    var n=its.length, dn=its.filter(function(it){return isDone(it.id);}).length;
+    h += '<div class="logday'+(k===0?' open':'')+'" data-d="'+esc(d)+'">'+
+      '<div class="row" data-open="'+esc(d)+'"><span class="d">'+esc(longDate(d))+'</span><span class="h">'+esc(day.headline||'')+'</span><span class="c">'+dn+' / '+n+'</span></div>'+
+      '<div class="mini"><i style="width:'+(n?Math.round(dn/n*100):0)+'%"></i></div>'+
+      '<div class="body">'+
+        (doneHere.length?'<h4>Done</h4><ul>'+doneHere.map(function(z){ return '<li><span class="t">'+esc(z.it.title)+'</span>'+(z.carried?'<span class="since grey">from '+esc(shortDate(z.it.day))+'</span>':'')+'<span class="w">'+(z.info.by==='brief'?'closed in the brief':esc(timeStr(z.info.at)))+'</span></li>'; }).join('')+'</ul>':'')+
+        (resolved.length?'<h4>Resolved in the brief</h4><ul>'+resolved.map(function(it){ return '<li><span class="t">'+esc(it.title)+'</span></li>'; }).join('')+'</ul>':'')+
+        (openHere.length?'<h4>Left open</h4><ul>'+openHere.map(function(it){ return '<li class="open-item"><span class="t">'+esc(it.title)+'</span><span class="since grey">'+esc(it.secTitle||'')+'</span></li>'; }).join('')+'</ul>':'')+
+        (!doneHere.length&&!resolved.length&&!openHere.length?'<p class="calm">Nothing tracked this day.</p>':'')+
+        (state.notes[d]?'<h4>Your note</h4><div class="nt">'+esc(state.notes[d])+'</div>':'')+
+        '<button class="openday" data-goto="'+esc(d)+'">Open this day</button>'+
+      '</div></div>';
+  });
+  h += '<footer><div class="foot"><div>Buyofuel · Buyo India Pvt Ltd</div><div>The Plan · isumanth.com/tools/theplan</div></div></footer>';
+  $main.innerHTML = '<div class="section" style="padding-top:8px">'+h+'</div>';
+}
+
+/* ---------- events ---------- */
+document.addEventListener('click', function(e){
+  var t = e.target.closest('[data-view]'); if(t){ view=t.dataset.view; render(); return; }
+  var tg = e.target.closest('[data-toggle]'); if(tg){ var id=tg.dataset.toggle;
+    if(state.done[id]) delete state.done[id];
+    else if(closedBy(id)) { /* closed by a brief: nothing to undo */ }
+    else state.done[id]={at:new Date().toISOString(), day:cur};
+    save(); renderDay(); return; }
+  var rm = e.target.closest('[data-remove]'); if(rm){ var d=rm.dataset.day; state.added[d]=(state.added[d]||[]).filter(function(x){return x.id!==rm.dataset.remove;}); delete state.done[rm.dataset.remove]; save(); reindex(); renderDay(); return; }
+  var op = e.target.closest('[data-open]'); if(op){ op.parentElement.classList.toggle('open'); return; }
+  var go = e.target.closest('[data-goto]'); if(go){ cur=go.dataset.goto; view='day'; render(); return; }
+});
+
+render();
+});
+</script>
+</body>
+</html>

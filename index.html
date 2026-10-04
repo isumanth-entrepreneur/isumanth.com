@@ -288,6 +288,20 @@
     .w-card,.book,.chip,.acard,.polaroid,.socials a,.c-form button,.brand svg,.bmodal-close{transition:none}
     .polaroid img,.polaroid figcaption{transition:none}
   }
+
+  /* Artwork occupies the spare space beside the title without adding row height. */
+  .w-title-row{display:block;position:relative;margin-bottom:9px;padding-right:68px}
+  .w-title-row .w-t{margin-bottom:0}
+  .w-illustration{position:absolute;right:0;top:50%;transform:translateY(-50%);
+    display:block;width:58px;height:34px;object-fit:contain;
+    opacity:.3;pointer-events:none;user-select:none;transition:opacity 250ms ease,transform 250ms ease;transform-origin:center center}
+  .w-card:focus-visible .w-illustration{opacity:1}
+  @media(hover:hover) and (pointer:fine){.w-card:hover .w-illustration{opacity:1;transform:translateY(-50%) scale(1.5)}}
+  @media(max-width:520px){
+    .w-title-row{padding-right:60px}
+    .w-illustration{width:50px;height:30px}
+  }
+  @media(prefers-reduced-motion:reduce){.w-illustration{transition:none}}
 </style>
 </head>
 <body>
@@ -363,7 +377,7 @@
         <span class="w-tape"></span>
         <span class="w-head"><span class="w-kind">Essay</span><span class="w-date">Sep 26</span></span>
         <span class="w-body">
-          <span class="w-t">Values on a Wall</span>
+          <span class="w-title-row"><span class="w-t">Values on a Wall</span><img class="w-illustration" src="assets/article-icons/values-on-a-wall-custom.png" width="1254" height="1254" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
           <span class="w-s">We wrote three company values in 2022 and they were true. This week I wrote five more, each with a second sentence that starts with "we do not".</span>
         </span>
         <span class="w-foot2"><span>isumanth.com</span><span class="w-go">read &rarr;</span></span>
@@ -372,7 +386,7 @@
         <span class="w-tape"></span>
         <span class="w-head"><span class="w-kind">Essay</span><span class="w-date">Sep 26</span></span>
         <span class="w-body">
-          <span class="w-t">One of Each</span>
+          <span class="w-title-row"><span class="w-t">One of Each</span><img class="w-illustration" src="assets/article-icons/one-of-each-custom.png" width="1254" height="1254" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
           <span class="w-s">Forty-five logos, almost no choices. On what a brand board says about attention, and the five you would actually miss.</span>
         </span>
         <span class="w-foot2"><span>isumanth.com</span><span class="w-go">read &rarr;</span></span>
@@ -381,7 +395,7 @@
         <span class="w-tape"></span>
         <span class="w-head"><span class="w-kind">Essay</span><span class="w-date">Aug 26</span></span>
         <span class="w-body">
-          <span class="w-t">Up for It</span>
+          <span class="w-title-row"><span class="w-t">Up for It</span><img class="w-illustration" src="assets/article-icons/up-for-it-custom.png" width="1254" height="1254" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
           <span class="w-s">An evening with friends helps every single time. I only go when I am up for it. On the loop that keeps the door shut in exactly the weeks it should open.</span>
         </span>
         <span class="w-foot2"><span>isumanth.com</span><span class="w-go">read &rarr;</span></span>
@@ -390,7 +404,7 @@
         <span class="w-tape"></span>
         <span class="w-head"><span class="w-kind">Essay</span><span class="w-date">Aug 26</span></span>
         <span class="w-body">
-          <span class="w-t">Shrink the Clock</span>
+          <span class="w-title-row"><span class="w-t">Shrink the Clock</span><img class="w-illustration" src="assets/article-icons/shrink-the-clock-custom.png" width="1254" height="1254" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
           <span class="w-s">The busiest week at my company is the last one of the month. On Parkinson's Law, giving the date before asking for the plan, and where that stops working.</span>
         </span>
         <span class="w-foot2"><span>isumanth.com</span><span class="w-go">read &rarr;</span></span>
@@ -399,7 +413,7 @@
         <span class="w-tape"></span>
         <span class="w-head"><span class="w-kind">Essay</span><span class="w-date">Aug 26</span></span>
         <span class="w-body">
-          <span class="w-t">Self-taught, Rewritten</span>
+          <span class="w-title-row"><span class="w-t">Self-taught, Rewritten</span><img class="w-illustration" src="assets/article-icons/self-taught-rewritten-custom.png" width="1254" height="1254" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
           <span class="w-s">At fifteen, my teacher was w3schools. Today a fifteen-year-old would just ask AI. What "self-taught" really meant all along.</span>
         </span>
         <span class="w-foot2"><span>isumanth.com</span><span class="w-go">read &rarr;</span></span>
@@ -408,7 +422,7 @@
         <span class="w-tape"></span>
         <span class="w-head"><span class="w-kind">Column</span><span class="w-date">Jul 26</span></span>
         <span class="w-body">
-          <span class="w-t">Before the Plants, Build the Ecosystem</span>
+          <span class="w-title-row"><span class="w-t">Before the Plants, Build the Ecosystem</span><img class="w-illustration" src="assets/article-icons/before-the-plants-custom.png" width="1254" height="1254" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
           <span class="w-s">Why compressed biogas needs farm-level biomass aggregation before it needs more plants, and what that means for rural jobs.</span>
         </span>
         <span class="w-foot2"><span>RenewEdge</span><span class="w-go">read &#8599;</span></span>
@@ -417,7 +431,7 @@
         <span class="w-tape"></span>
         <span class="w-head"><span class="w-kind">Note</span><span class="w-date">Jan 26</span></span>
         <span class="w-body">
-          <span class="w-t">Execution Is the Hardest Currency</span>
+          <span class="w-title-row"><span class="w-t">Execution Is the Hardest Currency</span><img class="w-illustration" src="assets/article-icons/execution-currency-custom.png" width="1254" height="1254" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
           <span class="w-s">Real businesses aren't built in dashboards alone. They're built in villages, plants, warehouses and long conversations where incentives don't always align.</span>
         </span>
         <span class="w-foot2"><span>LinkedIn</span><span class="w-go">read &#8599;</span></span>
@@ -426,7 +440,7 @@
         <span class="w-tape"></span>
         <span class="w-head"><span class="w-kind">Note</span><span class="w-date">May 25</span></span>
         <span class="w-body">
-          <span class="w-t">Not Everything Needs Your Attention</span>
+          <span class="w-title-row"><span class="w-t">Not Everything Needs Your Attention</span><img class="w-illustration" src="assets/article-icons/choose-attention-custom.png" width="1254" height="1254" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
           <span class="w-s">Inbox full. Three missed calls. Everything screaming. On choosing what actually deserves a response, even when it all feels urgent.</span>
         </span>
         <span class="w-foot2"><span>LinkedIn</span><span class="w-go">read &#8599;</span></span>
@@ -435,7 +449,7 @@
         <span class="w-tape"></span>
         <span class="w-head"><span class="w-kind">Note</span><span class="w-date">May 25</span></span>
         <span class="w-body">
-          <span class="w-t">One Year with the Apple Watch Ultra</span>
+          <span class="w-title-row"><span class="w-t">One Year with the Apple Watch Ultra</span><img class="w-illustration" src="assets/article-icons/year-with-watch-custom.png" width="1254" height="1254" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
           <span class="w-s">A gadget packed with features, reminders, and the constant urge to move faster. A reflection on what all that tracking actually does to you.</span>
         </span>
         <span class="w-foot2"><span>LinkedIn</span><span class="w-go">read &#8599;</span></span>
@@ -444,7 +458,7 @@
         <span class="w-tape"></span>
         <span class="w-head"><span class="w-kind">Note</span><span class="w-date">Jul 24</span></span>
         <span class="w-body">
-          <span class="w-t">A Compass, Not a Scorecard</span>
+          <span class="w-title-row"><span class="w-t">A Compass, Not a Scorecard</span><img class="w-illustration" src="assets/article-icons/compass-not-scorecard-custom.png" width="1254" height="1254" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
           <span class="w-s">When a tool meant to guide you starts judging every step you take, it stops inspiring. On goals, metrics and the difference between direction and judgement.</span>
         </span>
         <span class="w-foot2"><span>LinkedIn</span><span class="w-go">read &#8599;</span></span>
